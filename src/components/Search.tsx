@@ -1,0 +1,38 @@
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList
+} from '@/components/ui/command';
+import { useState } from 'react';
+
+const Search = () => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  return (
+    <Command>
+      <CommandInput
+        placeholder='Search for a pokémon'
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
+      {isFocused && (
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup>
+            <CommandItem>Bulbasaur</CommandItem>
+            <CommandItem>Ivysaur</CommandItem>
+            <CommandItem>Venusaur</CommandItem>
+            <CommandItem>Charmander</CommandItem>
+            <CommandItem>Charmelon</CommandItem>
+            <CommandItem>Charizard</CommandItem>
+          </CommandGroup>
+        </CommandList>
+      )}
+    </Command>
+  );
+};
+
+export default Search;
