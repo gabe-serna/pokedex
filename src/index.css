@@ -67,8 +67,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-#page {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
