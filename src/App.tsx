@@ -19,7 +19,8 @@ const App = () => {
         <Section>Image</Section>
         <Section>
           <Search />
-          <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
+          {/* this is a test */}
+          <TypographyH3>Filter by:</TypographyH3>
           <TypeDropdown />
         </Section>
       </Page>
