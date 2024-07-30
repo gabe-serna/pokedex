@@ -3,7 +3,7 @@ import { ThemeProvider } from './components/Theme-Provider';
 import Section from './components/Section';
 import Page from './components/Page';
 import Search from './components/Search';
-import Dropdown from './components/Dropdown';
+import TypeDropdown from './components/TypeDropdown';
 import {
   TypographyH1,
   TypographyH2,
@@ -19,9 +19,8 @@ const App = () => {
         <Section>Image</Section>
         <Section>
           <Search />
-          {/* margin is built into typography h3 pls change */}
-          <TypographyH3>Filter by:</TypographyH3>
-          <Dropdown title='Type' />
+          <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
+          <TypeDropdown />
         </Section>
       </Page>
     </ThemeProvider>
