@@ -40,7 +40,7 @@ const Dropdown = ({ title }: Props) => {
           <DialogHeader>
             <DialogTitle>Select Type</DialogTitle>
             <DialogDescription>
-              Select which types you want to filter the Pokédex by.
+              Select which types you want to filter the Pokédex by
             </DialogDescription>
           </DialogHeader>
           <TypeList />
@@ -58,7 +58,7 @@ const Dropdown = ({ title }: Props) => {
         <DrawerHeader className='text-left'>
           <DrawerTitle>Select Type</DrawerTitle>
           <DrawerDescription>
-            Select which types you want to filter the Pokédex by.
+            Select which types you want to filter the Pokédex by
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className='pt-2'>
