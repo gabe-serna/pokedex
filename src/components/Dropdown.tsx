@@ -36,7 +36,9 @@ const Dropdown = ({ previewText, title, description, children }: Props) => {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant='outline'>{previewText}</Button>
+          <Button variant='outline' className='mr-5'>
+            {previewText}
+          </Button>
         </DialogTrigger>
         <DialogContent className='sm:max-w-[425px]'>
           <DialogHeader>

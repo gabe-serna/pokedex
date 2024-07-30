@@ -11,6 +11,7 @@ import {
   TypographyH4,
   TypographyP
 } from './components/Typography';
+import GenDropdown from './components/GenDropdown';
 
 const App = () => {
   return (
@@ -19,9 +20,9 @@ const App = () => {
         <Section>Image</Section>
         <Section>
           <Search />
-          {/* this is a test */}
-          <TypographyH3>Filter by:</TypographyH3>
+          <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
           <TypeDropdown />
+          <GenDropdown />
         </Section>
       </Page>
     </ThemeProvider>
