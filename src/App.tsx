@@ -19,6 +19,7 @@ const App = () => {
         <Section>Image</Section>
         <Section>
           <Search />
+          {/* margin is built into typography h3 pls change */}
           <TypographyH3>Filter by:</TypographyH3>
           <Dropdown title='Type' />
         </Section>

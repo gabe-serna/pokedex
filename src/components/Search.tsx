@@ -24,7 +24,6 @@ const Search = () => {
           <CommandGroup>
             <CommandItem>Bulbasaur</CommandItem>
             <CommandItem>Ivysaur</CommandItem>
-            <CommandItem>Venusaur</CommandItem>
             <CommandItem>Charmander</CommandItem>
             <CommandItem>Charmelon</CommandItem>
             <CommandItem>Charizard</CommandItem>
