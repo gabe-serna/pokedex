@@ -19,10 +19,7 @@ const App = () => {
         <Section>Image</Section>
         <Section>
           <Search />
-<<<<<<< HEAD
           {/* this is a test */}
-=======
->>>>>>> fcc797d7040faaeb85956c6e553e4f84efe62237
           <TypographyH3>Filter by:</TypographyH3>
           <TypeDropdown />
         </Section>
