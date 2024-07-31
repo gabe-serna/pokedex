@@ -1,7 +1,8 @@
 import { Checkbox } from '@/components/ui/checkbox';
+import { QueryContext } from './QueryContext';
+import { useContext, useEffect, useState } from 'react';
 
 interface Props {
-  onSelected: (state: boolean, category: string, value: string) => void;
   id: string;
   label: string;
   category: string;
@@ -9,26 +10,62 @@ interface Props {
 }
 
 const CheckboxItem = ({
-  onSelected,
   id,
   label,
   category,
   color = 'var(--color-text)'
 }: Props) => {
-  const handleOnClick = (event: React.MouseEvent) => {
-    const target = event.target as HTMLButtonElement;
-    const state = target.ariaChecked === 'true' ? false : true;
-    const category = target.getAttribute('data-category') as string;
-    const value = target.id;
-    onSelected(state, category, value);
+  const { query, setQuery } = useContext(QueryContext);
+
+  const handleQuery = (state: boolean, category: string, value: string) => {
+    let input = [];
+    switch (category) {
+      case 'generations':
+        input = [...query.generations, parseInt(value.slice(-1))];
+        if (!state)
+          input = query.generations.filter(gen => gen !== parseInt(value.slice(-1)));
+
+        setQuery({
+          generations: input,
+          types: [...query.types]
+        });
+        break;
+      case 'types':
+        input = [...query.types, value];
+        if (!state) input = query.types.filter(type => type !== value);
+
+        setQuery({
+          generations: [...query.generations],
+          types: input
+        });
+        break;
+    }
   };
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMounted(true);
+    }, 200);
+  }, []);
 
   return (
     <div className='flex items-center space-x-2'>
       <Checkbox
         id={id}
+        key={id}
         data-category={category}
-        onClick={event => handleOnClick(event)}
+        onClick={event => {
+          if (mounted) {
+            console.log('CLICKED');
+            const target = event.target as HTMLButtonElement;
+            const state = target.ariaChecked === 'true' ? false : true;
+            const category = target.getAttribute('data-category') as string;
+            const value = target.id;
+            handleQuery(state, category, value);
+          }
+        }}
       />
       <label
         htmlFor={id}

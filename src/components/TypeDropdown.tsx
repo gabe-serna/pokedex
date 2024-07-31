@@ -1,71 +1,49 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useContext } from 'react';
 import Dropdown from '@/components/Dropdown';
 import CheckboxItem from '@/components/CheckboxItem';
 import { types } from '@/lib/utils';
+import { QueryContext } from './QueryContext';
 
-interface Props {
-  onSelect: (state: boolean, category: string, value: string) => void;
-}
-
-interface ListProps {
-  onSelect: (state: boolean, category: string, value: string) => void;
-  state: number;
-}
-
-const TypeDropdown = ({ onSelect }: Props) => {
+const TypeDropdown = () => {
   const [update, setUpdate] = useState(0);
   return (
     <Dropdown
-      //PUT HANDLE FUNCTION IN USE EFFECT
       handleClick={() => setUpdate(update + 1)}
       previewText='Types'
       title='Select Type'
       description='Select which types you want to filter the Pokédex by'
     >
-      <TypeList
-        state={update}
-        onSelect={(state, category, value) => onSelect(state, category, value)}
-      />
+      <TypeList state={update} />
     </Dropdown>
   );
 };
 
-const TypeList = ({ onSelect, state }: ListProps) => {
+interface Props {
+  state: number;
+}
+
+const TypeList = ({ state }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
+  const { query } = useContext(QueryContext);
 
   useEffect(() => {
-    ref.current?.childNodes.forEach(child => {
-      if (child instanceof HTMLElement) {
-        const type = child.innerText;
-        // console.log(child);
-        if (type == 'Normal') {
-          const button = child.childNodes[0] as HTMLButtonElement;
-          button.click();
-          console.log('click');
-        }
-      }
-    });
-
-    return () => {
+    function checkIfSelected() {
       ref.current?.childNodes.forEach(child => {
-        if (child instanceof HTMLElement) {
-          const type = child.innerText;
-          // console.log(child);
-          if (type == 'Normal') {
-            const button = child.childNodes[0] as HTMLButtonElement;
-            button.click();
-            console.log('unclick');
-          }
+        const button = child.childNodes[0] as HTMLButtonElement;
+        if (query.types.includes(button.id)) {
+          button.click();
         }
       });
-    };
+    }
+
+    checkIfSelected();
+    return () => checkIfSelected();
   }, [state]);
 
   return (
     <div ref={ref} className='grid grid-cols-3 grid-rows-6 gap-3'>
       {Array.from(types.keys()).map(type => (
         <CheckboxItem
-          onSelected={(state, category, value) => onSelect(state, category, value)}
           id={type}
           label={type.charAt(0).toUpperCase() + type.slice(1)}
           color={types.get(type)}
