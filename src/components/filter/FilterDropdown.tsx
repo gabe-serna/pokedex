@@ -1,6 +1,5 @@
-import React from 'react';
 import { ReactNode, useContext, useEffect, useRef, useState } from 'react';
-import Dropdown from '@/components/Dropdown';
+import Dropdown from '@/components/filter/Dropdown';
 import { QueryContext } from './QueryContext';
 
 interface Props {
