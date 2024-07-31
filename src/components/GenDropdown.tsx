@@ -45,7 +45,12 @@ const GenList = ({ state }: Props) => {
   return (
     <div ref={ref} className='grid grid-cols-3 grid-rows-3 gap-6'>
       {list.map(gen => (
-        <CheckboxItem id={`gen${gen}`} label={`Gen ${gen}`} category='generations' />
+        <CheckboxItem
+          id={`gen${gen}`}
+          key={`gen${gen}`}
+          label={`Gen ${gen}`}
+          category='generations'
+        />
       ))}
     </div>
   );

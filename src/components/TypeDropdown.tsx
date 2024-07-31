@@ -45,6 +45,7 @@ const TypeList = ({ state }: Props) => {
       {Array.from(types.keys()).map(type => (
         <CheckboxItem
           id={type}
+          key={type}
           label={type.charAt(0).toUpperCase() + type.slice(1)}
           color={types.get(type)}
           category='types'

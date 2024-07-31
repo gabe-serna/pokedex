@@ -54,7 +54,6 @@ const CheckboxItem = ({
     <div className='flex items-center space-x-2'>
       <Checkbox
         id={id}
-        key={id}
         data-category={category}
         onClick={event => {
           if (mounted) {
