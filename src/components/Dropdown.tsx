@@ -22,13 +22,20 @@ import {
 } from '@/components/ui/drawer';
 
 interface Props {
+  handleClick: () => void;
   previewText: string;
   title: string;
   description: string;
   children?: JSX.Element;
 }
 
-const Dropdown = ({ previewText, title, description, children }: Props) => {
+const Dropdown = ({
+  handleClick,
+  previewText,
+  title,
+  description,
+  children
+}: Props) => {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
@@ -36,7 +43,7 @@ const Dropdown = ({ previewText, title, description, children }: Props) => {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant='outline' className='mr-5'>
+          <Button variant='outline' className='mr-5' onClick={() => handleClick()}>
             {previewText}
           </Button>
         </DialogTrigger>
