@@ -58,7 +58,6 @@ const CheckboxItem = ({
         data-category={category}
         onClick={event => {
           if (mounted) {
-            console.log('CLICKED');
             const target = event.target as HTMLButtonElement;
             const state = target.ariaChecked === 'true' ? false : true;
             const category = target.getAttribute('data-category') as string;

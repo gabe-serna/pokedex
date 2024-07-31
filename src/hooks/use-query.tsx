@@ -36,6 +36,5 @@ const useQuery = (
       });
       break;
   }
-  console.log(query);
 };
 export default useQuery;
