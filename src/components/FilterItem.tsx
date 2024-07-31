@@ -2,19 +2,19 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { QueryContext } from './QueryContext';
 import { useContext, useEffect, useState } from 'react';
 
-interface Props {
+export interface FilterItemProps {
   id: string;
   label: string;
   category: string;
   color?: string;
 }
 
-const CheckboxItem = ({
+const FilterItem = ({
   id,
   label,
   category,
   color = 'var(--color-text)'
-}: Props) => {
+}: FilterItemProps) => {
   const { query, setQuery } = useContext(QueryContext);
 
   const handleQuery = (state: boolean, category: string, value: string) => {
@@ -76,4 +76,4 @@ const CheckboxItem = ({
   );
 };
 
-export default CheckboxItem;
+export default FilterItem;

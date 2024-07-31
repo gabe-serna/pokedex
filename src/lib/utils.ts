@@ -5,6 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 export const types = new Map<string, string>();
 /* https://gist.github.com/apaleslimghost/0d25ec801ca4fc43317bcff298af43c3 */
 types.set('normal', '#A8A77A');

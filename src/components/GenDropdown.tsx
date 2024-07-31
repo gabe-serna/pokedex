@@ -1,19 +1,19 @@
 import Dropdown from '@/components/Dropdown';
-import CheckboxItem from '@/components/CheckboxItem';
+import FilterItem from '@/components/FilterItem';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { QueryContext } from './QueryContext';
 
 const GenDropdown = () => {
-  const [update, setUpdate] = useState(0);
+  const [displayCheckedElements, setDisplayCheckedElements] = useState(0);
 
   return (
     <Dropdown
-      handleClick={() => setUpdate(update + 1)}
+      handleClick={() => setDisplayCheckedElements(displayCheckedElements + 1)}
       previewText='Generations'
       title='Select Generation'
       description='Select which generations you want to filter the Pokédex by'
     >
-      <GenList state={update} />
+      <GenList state={displayCheckedElements} />
     </Dropdown>
   );
 };
@@ -45,7 +45,7 @@ const GenList = ({ state }: Props) => {
   return (
     <div ref={ref} className='grid grid-cols-3 grid-rows-3 gap-6'>
       {list.map(gen => (
-        <CheckboxItem
+        <FilterItem
           id={`gen${gen}`}
           key={`gen${gen}`}
           label={`Gen ${gen}`}

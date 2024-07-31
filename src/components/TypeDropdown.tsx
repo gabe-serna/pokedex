@@ -1,19 +1,19 @@
 import { useRef, useEffect, useState, useContext } from 'react';
 import Dropdown from '@/components/Dropdown';
-import CheckboxItem from '@/components/CheckboxItem';
+import FilterItem from '@/components/FilterItem';
 import { types } from '@/lib/utils';
 import { QueryContext } from './QueryContext';
 
 const TypeDropdown = () => {
-  const [update, setUpdate] = useState(0);
+  const [displayCheckedElements, setDisplayCheckedElements] = useState(0);
   return (
     <Dropdown
-      handleClick={() => setUpdate(update + 1)}
+      handleClick={() => setDisplayCheckedElements(displayCheckedElements + 1)}
       previewText='Types'
       title='Select Type'
       description='Select which types you want to filter the Pokédex by'
     >
-      <TypeList state={update} />
+      <TypeList state={displayCheckedElements} />
     </Dropdown>
   );
 };
@@ -43,12 +43,12 @@ const TypeList = ({ state }: Props) => {
   return (
     <div ref={ref} className='grid grid-cols-3 grid-rows-6 gap-3'>
       {Array.from(types.keys()).map(type => (
-        <CheckboxItem
+        <FilterItem
           id={type}
           key={type}
           label={type.charAt(0).toUpperCase() + type.slice(1)}
-          color={types.get(type)}
           category='types'
+          color={types.get(type)}
         />
       ))}
     </div>

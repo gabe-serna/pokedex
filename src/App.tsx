@@ -14,6 +14,9 @@ import {
   TypographyP
 } from './components/Typography';
 import { QueryContext } from './components/QueryContext';
+import FilterDropdown from './components/FilterDropdown';
+import FilterItem from './components/FilterItem';
+import { numbers, types } from './lib/utils';
 
 interface Query {
   generations: number[];
@@ -31,8 +34,45 @@ const App = () => {
           <Search />
           <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
           <QueryContext.Provider value={{ query, setQuery }}>
-            <TypeDropdown />
-            <GenDropdown />
+            <FilterDropdown
+              previewText='Types'
+              title='Select Type'
+              description='Select which types you want to filter the Pokédex by'
+              category='types'
+              cols={3}
+              rows={6}
+              gap={3}
+            >
+              {Array.from(types.keys()).map(type => (
+                <FilterItem
+                  id={type}
+                  key={type}
+                  label={type.charAt(0).toUpperCase() + type.slice(1)}
+                  category='types'
+                  color={types.get(type)}
+                />
+              ))}
+            </FilterDropdown>
+            <FilterDropdown
+              previewText='Generations'
+              title='Select Generation'
+              description='Select which generations you want to filter the Pokédex by'
+              category='generations'
+              cols={3}
+              rows={3}
+              gap={6}
+            >
+              {numbers.map(gen => (
+                <FilterItem
+                  id={`gen${gen}`}
+                  key={`gen${gen}`}
+                  label={`Gen ${gen}`}
+                  category='generations'
+                />
+              ))}
+            </FilterDropdown>
+            {/* <TypeDropdown /> */}
+            {/* <GenDropdown /> */}
           </QueryContext.Provider>
         </Section>
       </Page>
