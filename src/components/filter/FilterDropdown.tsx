@@ -31,6 +31,7 @@ const FilterDropdown = ({
       previewText={previewText}
       title={title}
       description={description}
+      category={category}
     >
       <Filters
         state={displayCheckedElements}
