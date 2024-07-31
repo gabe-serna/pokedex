@@ -61,7 +61,9 @@ const Dropdown = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant='outline'>{previewText}</Button>
+        <Button variant='outline' className='mr-5'>
+          {previewText}
+        </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className='text-left'>
