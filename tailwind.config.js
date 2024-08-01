@@ -2,7 +2,11 @@
 
 import animate from 'tailwindcss-animate';
 
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const safelist = [numbers.map(n => `grid-cols-${n}`), numbers.map(n => `gap-${n}`)];
+
 const config = {
+  safelist: safelist.flat(),
   darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',

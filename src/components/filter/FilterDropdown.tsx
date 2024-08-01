@@ -7,8 +7,8 @@ interface Props {
   title: string;
   description: string;
   category: string;
-  cols: number;
-  gap: number;
+  cols: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  gap: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   children?: ReactNode | ReactNode[];
 }
 
@@ -53,8 +53,8 @@ interface FilterProps {
 const Filters = ({ state, cols, gap, category, children }: FilterProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { query } = useContext(QueryContext);
-  const gapClass = String.raw`gap-${gap.toString()}`;
-  const colsClass = String.raw`grid-cols-${cols.toString()}`;
+  const gapClass = `gap-${gap.toString()}`;
+  const colsClass = `grid-cols-${cols.toString()}`;
 
   useEffect(() => {
     function checkIfSelected() {
