@@ -3,7 +3,32 @@
 import animate from 'tailwindcss-animate';
 
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const safelist = [numbers.map(n => `grid-cols-${n}`), numbers.map(n => `gap-${n}`)];
+export const hexCodes = [
+  '#A8A77A',
+  '#EE8130',
+  '#6390F0',
+  '#c29e06',
+  '#7AC74C',
+  '#96D9D6',
+  '#C22E28',
+  '#A33EA1',
+  '#E2BF65',
+  '#A98FF3',
+  '#F95587',
+  '#A6B91A',
+  '#B6A136',
+  '#735797',
+  '#6F35FC',
+  '#705746',
+  '#B7B7CE',
+  '#D685AD'
+];
+const safelist = [
+  numbers.map(n => `grid-cols-${n}`),
+  numbers.map(n => `gap-${n}`),
+  hexCodes.map(c => `data-[state=checked]:bg-[${c}]`),
+  hexCodes.map(c => `border-[${c}]`)
+];
 
 const config = {
   safelist: safelist.flat(),

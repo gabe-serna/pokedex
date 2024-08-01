@@ -12,7 +12,7 @@ export const types = new Map<string, string>();
 types.set('normal', '#A8A77A');
 types.set('fire', '#EE8130');
 types.set('water', '#6390F0');
-types.set('electric', '#F7D02C');
+types.set('electric', '#c29e06');
 types.set('grass', '#7AC74C');
 types.set('ice', '#96D9D6');
 types.set('fighting', '#C22E28');
