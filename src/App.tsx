@@ -38,7 +38,6 @@ const App = () => {
               description='Select which types you want to filter the Pokédex by'
               category='types'
               cols={3}
-              rows={6}
               gap={3}
             >
               {Array.from(types.keys()).map(type => (
@@ -57,7 +56,6 @@ const App = () => {
               description='Select which generations you want to filter the Pokédex by'
               category='generations'
               cols={3}
-              rows={3}
               gap={6}
             >
               {numbers.map(gen => (

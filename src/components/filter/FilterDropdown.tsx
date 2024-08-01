@@ -8,7 +8,6 @@ interface Props {
   description: string;
   category: string;
   cols: number;
-  rows: number;
   gap: number;
   children?: ReactNode | ReactNode[];
 }
@@ -19,7 +18,6 @@ const FilterDropdown = ({
   description,
   category,
   cols,
-  rows,
   gap,
   children
 }: Props) => {
@@ -36,7 +34,6 @@ const FilterDropdown = ({
       <Filters
         state={displayCheckedElements}
         cols={cols}
-        rows={rows}
         gap={gap}
         category={category}
         children={children}
@@ -48,15 +45,16 @@ const FilterDropdown = ({
 interface FilterProps {
   state: number;
   cols: number;
-  rows: number;
   gap: number;
   category: string;
   children?: ReactNode | ReactNode[];
 }
 
-const Filters = ({ state, cols, rows, gap, category, children }: FilterProps) => {
+const Filters = ({ state, cols, gap, category, children }: FilterProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { query } = useContext(QueryContext);
+  const gapClass = String.raw`gap-${gap.toString()}`;
+  const colsClass = String.raw`grid-cols-${cols.toString()}`;
 
   useEffect(() => {
     function checkIfSelected() {
@@ -81,10 +79,7 @@ const Filters = ({ state, cols, rows, gap, category, children }: FilterProps) =>
   }, [state]);
 
   return (
-    <div
-      ref={ref}
-      className={`grid grid-cols-${cols.toString()} grid-rows-${rows.toString()} gap-${gap.toString()}`}
-    >
+    <div ref={ref} className={`grid ${colsClass} ${gapClass}`}>
       {children}
     </div>
   );
