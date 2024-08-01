@@ -99,7 +99,7 @@ const Dropdown = ({
         <DrawerFooter className='pt-2'>
           {children}
           <DrawerClose asChild>
-            <Button variant='outline'>Cancel</Button>
+            <Button variant='default'>Close</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
