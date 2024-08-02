@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import { ThemeProvider } from './components/Theme-Provider';
-import Section from './components/Section';
-import Page from './components/Page';
-import Search from './components/Search';
 import {
   TypographyH1,
   TypographyH2,
@@ -11,9 +8,13 @@ import {
   TypographyH4,
   TypographyP
 } from './components/Typography';
-import { QueryContext } from './components/filter/QueryContext';
+import Section from './components/Section';
+import Page from './components/Page';
+import Search from './components/Search';
+import { ScrollDropdown } from './components/filter/ScrollDropdown';
 import FilterDropdown from './components/filter/FilterDropdown';
 import FilterItem from './components/filter/FilterItem';
+import { QueryContext } from './components/filter/QueryContext';
 import { numbers, types } from './lib/utils';
 
 interface Query {
@@ -67,6 +68,7 @@ const App = () => {
                 />
               ))}
             </FilterDropdown>
+            <ScrollDropdown />
           </QueryContext.Provider>
         </Section>
       </Page>
