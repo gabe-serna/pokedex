@@ -36,7 +36,7 @@ const App = () => {
             <FilterDropdown
               previewText='Types'
               title='Select Type'
-              description='Select which types you want to filter the Pokédex by'
+              description='Choose which types to filter the Pokédex by'
               category='types'
               cols={3}
               gap={3}
@@ -54,7 +54,7 @@ const App = () => {
             <FilterDropdown
               previewText='Generations'
               title='Select Generation'
-              description='Select which generations you want to filter the Pokédex by'
+              description='Choose which generations to filter the Pokédex by'
               category='generations'
               cols={3}
               gap={6}

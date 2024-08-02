@@ -13,7 +13,14 @@ import {
   CommandList
 } from '@/components/ui/command';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from '../ui/dialog';
 
 type Status = {
   value: string;
@@ -34,6 +41,14 @@ const statuses: Status[] = [
     label: 'In Progress'
   },
   {
+    value: 'extra',
+    label: 'extra'
+  },
+  {
+    value: 'extra1',
+    label: 'extra1'
+  },
+  {
     value: 'canceled',
     label: 'Canceled'
   }
@@ -46,16 +61,29 @@ export function ScrollDropdown() {
 
   if (isDesktop) {
     return (
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button variant='outline' className='w-[150px] justify-start'>
-            {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogTrigger asChild>
+          <Button
+            variant='outline'
+            className='mr-5 relative'
+            // onClick={() => handleClick()}
+          >
+            Abilities
+            {/* {amountSelected && (
+              <CounterBadge variant='destructive'>{amountSelected}</CounterBadge>
+            )} */}
           </Button>
-        </PopoverTrigger>
-        <PopoverContent className='w-[200px] p-0' align='start'>
+        </DialogTrigger>
+        <DialogContent className='sm:max-w-[425px]'>
+          <DialogHeader>
+            <DialogTitle>Select Abilites</DialogTitle>
+            <DialogDescription>
+              Choose which abilites to filter the Pokédex by
+            </DialogDescription>
+          </DialogHeader>
           <StatusList setOpen={setOpen} setSelectedStatus={setSelectedStatus} />
-        </PopoverContent>
-      </Popover>
+        </DialogContent>
+      </Dialog>
     );
   }
 
@@ -84,8 +112,8 @@ function StatusList({
 }) {
   return (
     <Command>
-      <CommandInput placeholder='Filter status...' />
-      <CommandList>
+      <CommandInput placeholder='Search for an ability' />
+      <CommandList className='h-[136px]'>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup>
           {statuses.map(status => (
