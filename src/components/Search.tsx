@@ -19,7 +19,7 @@ const Search = () => {
         onBlur={() => setIsFocused(false)}
       />
       {isFocused && (
-        <CommandList>
+        <CommandList className='absolute top-[calc(50%+2.75rem+1px)] w-1/2'>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             <CommandItem>Bulbasaur</CommandItem>

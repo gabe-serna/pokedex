@@ -34,10 +34,6 @@ const statuses: Status[] = [
     label: 'In Progress'
   },
   {
-    value: 'done',
-    label: 'Done'
-  },
-  {
     value: 'canceled',
     label: 'Canceled'
   }
