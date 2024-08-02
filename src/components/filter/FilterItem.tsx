@@ -9,12 +9,7 @@ export interface FilterItemProps {
   color?: string;
 }
 
-const FilterItem = ({
-  id,
-  label,
-  category,
-  color = 'var(--color-text)'
-}: FilterItemProps) => {
+const FilterItem = ({ id, label, category, color = '' }: FilterItemProps) => {
   const { query, setQuery } = useContext(QueryContext);
 
   const handleQuery = (state: boolean, category: string, value: string) => {
@@ -43,7 +38,10 @@ const FilterItem = ({
   };
 
   const [mounted, setMounted] = useState(false);
-
+  let classes;
+  if (color !== '') {
+    classes = `border-[${color}] data-[state=checked]:bg-[${color}]`;
+  }
   useEffect(() => {
     setTimeout(() => {
       setMounted(true);
@@ -54,6 +52,7 @@ const FilterItem = ({
     <div className='flex items-center space-x-2'>
       <Checkbox
         id={id}
+        className={classes}
         data-category={category}
         onClick={event => {
           if (mounted) {
@@ -67,7 +66,6 @@ const FilterItem = ({
       />
       <label
         htmlFor={id}
-        style={{ color: color }}
         className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
       >
         {label}
