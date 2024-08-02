@@ -39,9 +39,7 @@ const FilterItem = ({ id, label, category, color = '' }: FilterItemProps) => {
 
   const [mounted, setMounted] = useState(false);
   let classes;
-  if (color === '') {
-    classes = '';
-  } else {
+  if (color !== '') {
     classes = `border-[${color}] data-[state=checked]:bg-[${color}]`;
   }
   useEffect(() => {
