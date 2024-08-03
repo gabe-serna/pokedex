@@ -7,10 +7,10 @@ import {
   CommandItem,
   CommandList
 } from '@/components/ui/command';
-import { Pokemon } from '@/hooks/use-search';
+import { Result } from '@/lib/getData';
 
 interface Props {
-  data: Pokemon[];
+  data: Result[];
 }
 
 const Search = ({ data }: Props) => {
