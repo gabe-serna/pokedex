@@ -6,6 +6,16 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export const genMap = new Map<number, string>();
+genMap.set(1, 'i');
+genMap.set(2, 'ii');
+genMap.set(3, 'iii');
+genMap.set(4, 'iv');
+genMap.set(5, 'v');
+genMap.set(6, 'vi');
+genMap.set(7, 'vii');
+genMap.set(8, 'viii');
+genMap.set(9, 'ix');
 
 export const types = new Map<string, string>();
 /* https://gist.github.com/apaleslimghost/0d25ec801ca4fc43317bcff298af43c3 */

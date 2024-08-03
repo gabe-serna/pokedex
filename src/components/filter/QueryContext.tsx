@@ -2,7 +2,7 @@ import { createContext, Dispatch, SetStateAction } from 'react';
 
 export interface Query {
   types: string[];
-  generations: number[];
+  generations: string[];
   abilities: string[];
 }
 

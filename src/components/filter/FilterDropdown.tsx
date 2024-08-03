@@ -74,17 +74,13 @@ const Filters = ({ state, cols, gap, category, children }: FilterProps) => {
     function checkIfSelected() {
       ref.current?.childNodes.forEach(child => {
         const button = child.childNodes[0] as HTMLButtonElement;
-
-        switch (category) {
-          case 'generations':
-            if (query.generations.includes(parseInt(button.id.slice(-1)))) {
-              button.click();
-            }
-            break;
-          case 'types':
-            if (query.types.includes(button.id)) {
-              button.click();
-            }
+        if (
+          (category === 'generations' ||
+            category === 'abilities' ||
+            category === 'types') &&
+          query[category].includes(button.id)
+        ) {
+          button.click();
         }
       });
     }

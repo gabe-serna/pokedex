@@ -8,15 +8,14 @@ import {
   TypographyH4,
   TypographyP
 } from './components/Typography';
+import { Query, QueryContext } from './components/filter/QueryContext';
+import { numbers, types, genMap } from './lib/utils';
+import { Data } from './components/filter/Data';
 import Section from './components/Section';
 import Page from './components/Page';
-import Search from './components/Search';
 import FilterDropdown from './components/filter/FilterDropdown';
 import FilterItem from './components/filter/FilterItem';
-import { Query, QueryContext } from './components/filter/QueryContext';
-import { numbers, types } from './lib/utils';
 import AbilityList from './components/filter/AbilityList';
-import { Data } from './components/filter/Data';
 
 const App = () => {
   const [query, setQuery] = useState<Query>({
@@ -64,8 +63,8 @@ const App = () => {
               <>
                 {numbers.map(gen => (
                   <FilterItem
-                    id={`gen${gen}`}
-                    key={`gen${gen}`}
+                    id={`generation-${genMap.get(gen)}`}
+                    key={`generation-${gen}`}
                     label={`Gen ${gen}`}
                     category='generations'
                   />

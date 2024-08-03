@@ -16,9 +16,8 @@ const FilterItem = ({ id, label = '', category, color = '' }: FilterItemProps) =
     let input = [];
     switch (category) {
       case 'generations':
-        input = [...query.generations, parseInt(value.slice(-1))];
-        if (!state)
-          input = query.generations.filter(gen => gen !== parseInt(value.slice(-1)));
+        input = [...query.generations, value];
+        if (!state) input = query.generations.filter(gen => gen !== value);
 
         setQuery({
           generations: input,

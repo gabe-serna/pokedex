@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 export interface Result {
   name: string;
@@ -33,8 +33,9 @@ export async function filterTypes(
           }
         });
       }
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      if (error instanceof AxiosError && error.message !== 'canceled')
+        console.error(error);
     }
   });
 
