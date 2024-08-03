@@ -21,43 +21,13 @@ import {
   DialogTitle,
   DialogTrigger
 } from '../ui/dialog';
-
-type Status = {
-  value: string;
-  label: string;
-};
-
-const statuses: Status[] = [
-  {
-    value: 'backlog',
-    label: 'Backlog'
-  },
-  {
-    value: 'todo',
-    label: 'Todo'
-  },
-  {
-    value: 'in progress',
-    label: 'In Progress'
-  },
-  {
-    value: 'extra',
-    label: 'extra'
-  },
-  {
-    value: 'extra1',
-    label: 'extra1'
-  },
-  {
-    value: 'canceled',
-    label: 'Canceled'
-  }
-];
+import { abilities } from '@/lib/utils';
+// import { Filter } from 'lucide-react';
+import FilterItem from './FilterItem';
 
 export function ScrollDropdown() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
-  const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(null);
 
   if (isDesktop) {
     return (
@@ -81,7 +51,7 @@ export function ScrollDropdown() {
               Choose which abilites to filter the Pokédex by
             </DialogDescription>
           </DialogHeader>
-          <StatusList setOpen={setOpen} setSelectedStatus={setSelectedStatus} />
+          <StatusList />
         </DialogContent>
       </Dialog>
     );
@@ -91,44 +61,36 @@ export function ScrollDropdown() {
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button variant='outline' className='w-[150px] justify-start'>
-          {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
+          Abilities
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <div className='mt-4 border-t'>
-          <StatusList setOpen={setOpen} setSelectedStatus={setSelectedStatus} />
+          <StatusList />
         </div>
       </DrawerContent>
     </Drawer>
   );
 }
 
-function StatusList({
-  setOpen,
-  setSelectedStatus
-}: {
-  setOpen: (open: boolean) => void;
-  setSelectedStatus: (status: Status | null) => void;
-}) {
+function StatusList() {
   return (
     <Command>
       <CommandInput placeholder='Search for an ability' />
       <CommandList className='h-[136px]'>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup>
-          {statuses.map(status => (
-            <CommandItem
-              key={status.value}
-              value={status.value}
-              onSelect={value => {
-                setSelectedStatus(
-                  statuses.find(priority => priority.value === value) || null
-                );
-                setOpen(false);
-              }}
-            >
-              {status.label}
-            </CommandItem>
+          {abilities.map(ability => (
+            <div className='flex flex-row items-center w-full'>
+              <CommandItem
+                key={ability}
+                value={ability}
+                className='w-full aria-selected:bg-accent-muted data-[disabled]:pointer-events-auto'
+              >
+                <FilterItem id={ability} category='abilities' />
+                {ability}
+              </CommandItem>
+            </div>
           ))}
         </CommandGroup>
       </CommandList>

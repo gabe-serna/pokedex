@@ -73,7 +73,9 @@ const config = {
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
+          muted: 'hsl(var(--accent-muted))',
+          foreground: 'hsl(var(--accent-foreground))',
+          foregroundMuted: 'hsl(var(--accent-foreground-muted))'
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',

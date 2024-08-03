@@ -4,12 +4,12 @@ import { useContext, useEffect, useState } from 'react';
 
 export interface FilterItemProps {
   id: string;
-  label: string;
   category: string;
+  label?: string;
   color?: string;
 }
 
-const FilterItem = ({ id, label, category, color = '' }: FilterItemProps) => {
+const FilterItem = ({ id, label = '', category, color = '' }: FilterItemProps) => {
   const { query, setQuery } = useContext(QueryContext);
 
   const handleQuery = (state: boolean, category: string, value: string) => {
