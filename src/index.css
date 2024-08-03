@@ -69,3 +69,20 @@
     @apply bg-background text-foreground;
   }
 }
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(from hsl(var(--accent)) h calc(s - 30) l) transparent;
+  }
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(from hsl(var(--accent)) h calc(s - 30) l);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
