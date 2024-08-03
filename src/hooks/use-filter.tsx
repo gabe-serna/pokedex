@@ -1,51 +1,40 @@
 import { Query } from '@/components/filter/QueryContext';
 import { useEffect, useState } from 'react';
-import { Result, dataPromise } from '@/lib/getData';
-import { Type } from '@/lib/pokemon';
-import axios from 'axios';
+import { dataPromise } from '@/lib/getData';
+import { filterTypes, Result } from '@/lib/filter';
 
 let dataset: Result[] = [];
 dataPromise.then(res => (dataset = res));
 
 const useFilter = (query: Query) => {
-  // let dataset: Result[] = [];
-  // const { types, generations, abilities } = query;
-  console.log('Filtering data');
+  const { types, generations, abilities } = query;
   const [data, setData] = useState<Result[]>([]);
 
   // This useEffect should start by looping through each element of the dataset,
   // checking if the filter criteria are met, and then finishing with setData(new data)
   useEffect(() => {
-    const newData: Result[] = [];
-    async function filterTypes() {
-      const promises = dataset.map(async pokemon => {
-        try {
-          const result = await axios
-            .get(pokemon.url)
-            .catch(err => console.error(err));
+    console.log('Filtering data');
+    let newData: Result[] = [];
+    const controller = new AbortController();
 
-          //Types
-          if (query.types.length !== 0) {
-            const types = result?.data.types as Type[];
-            types.forEach(type => {
-              // console.log(type);
-              if (query.types.includes(type.type.name)) {
-                console.log('type match');
-                newData.push(pokemon);
-              }
-            });
-          }
-        } catch (err) {
-          console.error(err);
-        }
-      });
+    async function filter() {
+      if (types.length === 0 && generations.length === 0 && abilities.length === 0) {
+        setData(dataset);
+        return;
+      }
+      newData = await filterTypes(types, dataset, newData, controller.signal);
+      // await filterGenerations(query, dataset, newData);
+      // await filterAbilities(query, dataset, newData);
 
-      await Promise.all(promises);
-      console.log('NEW DATA: ', newData);
-      newData.length > 0 ? setData(newData) : setData(dataset);
+      setData(newData);
     }
-    filterTypes();
-  }, [query]);
+
+    filter();
+    return () => {
+      console.log('Cancelling API calls');
+      controller.abort();
+    };
+  }, [query, dataset]);
 
   return data;
 };

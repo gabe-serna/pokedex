@@ -1,9 +1,5 @@
 import axios from 'axios';
-
-export interface Result {
-  name: string;
-  url: string;
-}
+import { Result } from './filter';
 
 async function getData(): Promise<Result[]> {
   try {
