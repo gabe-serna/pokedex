@@ -35,7 +35,7 @@ export function ScrollDropdown() {
         <DialogTrigger asChild>
           <Button
             variant='outline'
-            className='mr-5 relative'
+            className='mr-5 relative bg-blue-900 hover:bg-blue-600'
             // onClick={() => handleClick()}
           >
             Abilities
@@ -60,7 +60,10 @@ export function ScrollDropdown() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant='outline' className='w-[150px] justify-start'>
+        <Button
+          variant='outline'
+          className='justify-start bg-blue-900 hover:bg-blue-600'
+        >
           Abilities
         </Button>
       </DrawerTrigger>

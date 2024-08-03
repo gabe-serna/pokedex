@@ -61,7 +61,7 @@ const Dropdown = ({
         <DialogTrigger asChild>
           <Button
             variant='outline'
-            className='mr-5 relative'
+            className='mr-5 relative bg-blue-900 hover:bg-blue-600'
             onClick={() => handleClick()}
           >
             {previewText}
@@ -84,7 +84,10 @@ const Dropdown = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant='outline' className='mr-5 relative'>
+        <Button
+          variant='outline'
+          className='mr-5 relative bg-blue-900 hover:bg-blue-600'
+        >
           {previewText}
           {amountSelected && (
             <CounterBadge variant='destructive'>{amountSelected}</CounterBadge>

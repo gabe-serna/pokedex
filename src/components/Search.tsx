@@ -31,6 +31,7 @@ const Search = () => {
           </CommandGroup>
         </CommandList>
       )}
+      <div className='absolute sm:top-[calc(2.5rem+4px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-0.25rem)] sm:w-[calc(50%-0.25rem)] bg-black/20 ml-1'></div>
     </Command>
   );
 };

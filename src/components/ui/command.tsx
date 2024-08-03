@@ -13,7 +13,7 @@ const Command = React.forwardRef<
   <CommandPrimitive
     ref={ref}
     className={cn(
-      'flex w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground',
+      'flex w-full flex-col overflow-hidden rounded-md bg-black/20 text-popover-foreground',
       className
     )}
     {...props}
@@ -64,7 +64,7 @@ const CommandList = React.forwardRef<
   <CommandPrimitive.List
     ref={ref}
     className={cn(
-      'z-10 max-h-[300px] overflow-y-auto overflow-x-hidden w-full sm:top-[calc(2.5rem+4px)] bg-background',
+      'z-10 max-h-[300px] overflow-y-auto overflow-x-hidden w-full sm:top-[calc(2.5rem+4px)] bg-transparent',
       className
     )}
     {...props}
@@ -93,7 +93,7 @@ const CommandGroup = React.forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      'overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground',
+      'overflow-hidden p-1 text-foreground bg-transparent [&_[cmdk-group-heading]]:px-2 pr-0 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground',
       className
     )}
     {...props}
@@ -121,7 +121,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent-muted aria-text-accent-foreground data-[disabled]:pointer-events-none',
+      'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent-muted bg-transparent aria-text-accent-foreground data-[disabled]:pointer-events-none',
       className
     )}
     {...props}
