@@ -52,6 +52,9 @@ const Dropdown = ({
     case 'types':
       amountSelected = query.types.length;
       break;
+    case 'abilities':
+      amountSelected = query.abilities.length;
+      break;
   }
   if (amountSelected === 0) amountSelected = null;
 
