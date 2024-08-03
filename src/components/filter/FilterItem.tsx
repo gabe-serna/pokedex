@@ -22,7 +22,8 @@ const FilterItem = ({ id, label = '', category, color = '' }: FilterItemProps) =
 
         setQuery({
           generations: input,
-          types: [...query.types]
+          types: [...query.types],
+          abilities: [...query.abilities]
         });
         break;
       case 'types':
@@ -30,8 +31,19 @@ const FilterItem = ({ id, label = '', category, color = '' }: FilterItemProps) =
         if (!state) input = query.types.filter(type => type !== value);
 
         setQuery({
+          types: input,
           generations: [...query.generations],
-          types: input
+          abilities: [...query.abilities]
+        });
+        break;
+      case 'abilities':
+        input = [...query.abilities, value];
+        if (!state) input = query.abilities.filter(ability => ability !== value);
+
+        setQuery({
+          types: [...query.types],
+          generations: [...query.generations],
+          abilities: input
         });
         break;
     }

@@ -13,17 +13,16 @@ import Page from './components/Page';
 import Search from './components/Search';
 import FilterDropdown from './components/filter/FilterDropdown';
 import FilterItem from './components/filter/FilterItem';
-import { QueryContext } from './components/filter/QueryContext';
+import { Query, QueryContext } from './components/filter/QueryContext';
 import { numbers, types } from './lib/utils';
 import AbilityList from './components/filter/AbilityList';
 
-interface Query {
-  generations: number[];
-  types: string[];
-}
-
 const App = () => {
-  const [query, setQuery] = useState<Query>({ generations: [], types: [] });
+  const [query, setQuery] = useState<Query>({
+    types: [],
+    generations: [],
+    abilities: []
+  });
 
   return (
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
@@ -76,8 +75,9 @@ const App = () => {
               previewText='Abilities'
               title='Select Abilites'
               description='Choose which abilites to filter the Pokédex by'
-              category='type'
+              category='abilities'
               isScroll={true}
+              scrollText='Search for an ability'
             >
               <AbilityList />
             </FilterDropdown>

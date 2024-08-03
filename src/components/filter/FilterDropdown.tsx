@@ -1,6 +1,7 @@
 import { ReactNode, useContext, useEffect, useRef, useState } from 'react';
 import Dropdown from '@/components/filter/Dropdown';
 import { QueryContext } from './QueryContext';
+import Scroll from './Scroll';
 
 interface Props {
   previewText: string;
@@ -8,6 +9,7 @@ interface Props {
   description: string;
   category: string;
   isScroll?: boolean | null;
+  scrollText?: string;
   cols?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   children?: JSX.Element | undefined;
@@ -19,6 +21,7 @@ const FilterDropdown = ({
   description,
   category,
   isScroll = null,
+  scrollText = '',
   cols = 3,
   gap = 3,
   children
@@ -42,7 +45,12 @@ const FilterDropdown = ({
           children={children}
         />
       ) : (
-        children
+        <Scroll
+          state={displayCheckedElements}
+          category={category}
+          scrollText={scrollText}
+          children={children}
+        />
       )}
     </Dropdown>
   );
@@ -66,6 +74,7 @@ const Filters = ({ state, cols, gap, category, children }: FilterProps) => {
     function checkIfSelected() {
       ref.current?.childNodes.forEach(child => {
         const button = child.childNodes[0] as HTMLButtonElement;
+
         switch (category) {
           case 'generations':
             if (query.generations.includes(parseInt(button.id.slice(-1)))) {
@@ -79,7 +88,6 @@ const Filters = ({ state, cols, gap, category, children }: FilterProps) => {
         }
       });
     }
-
     checkIfSelected();
     return () => checkIfSelected();
   }, [state]);

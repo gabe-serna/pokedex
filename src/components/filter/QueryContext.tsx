@@ -1,8 +1,9 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
-interface Query {
-  generations: number[];
+export interface Query {
   types: string[];
+  generations: number[];
+  abilities: string[];
 }
 
 interface QueryState {
@@ -11,6 +12,6 @@ interface QueryState {
 }
 
 export const QueryContext = createContext<QueryState>({
-  query: { generations: [], types: [] },
+  query: { types: [], generations: [], abilities: [] },
   setQuery: () => {}
 });
