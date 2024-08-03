@@ -16,6 +16,7 @@ import FilterItem from './components/filter/FilterItem';
 import { Query, QueryContext } from './components/filter/QueryContext';
 import { numbers, types } from './lib/utils';
 import AbilityList from './components/filter/AbilityList';
+import { Data } from './components/filter/Data';
 
 const App = () => {
   const [query, setQuery] = useState<Query>({
@@ -29,9 +30,9 @@ const App = () => {
       <Page>
         <Section>Image</Section>
         <Section>
-          <Search />
-          <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
           <QueryContext.Provider value={{ query, setQuery }}>
+            <Data />
+            <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
             <FilterDropdown
               previewText='Types'
               title='Select Type'

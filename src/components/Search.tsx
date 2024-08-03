@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Command,
   CommandEmpty,
@@ -6,9 +7,13 @@ import {
   CommandItem,
   CommandList
 } from '@/components/ui/command';
-import { useState } from 'react';
+import { Pokemon } from '@/hooks/use-search';
 
-const Search = () => {
+interface Props {
+  data: Pokemon[];
+}
+
+const Search = ({ data }: Props) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -22,12 +27,13 @@ const Search = () => {
         <CommandList className='absolute top-[calc(50%+2.75rem+1px)] sm:w-1/2 h-[168px]'>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
-            <CommandItem>Bulbasaur</CommandItem>
-            <CommandItem>Ivysaur</CommandItem>
-            <CommandItem>Big Bertha</CommandItem>
-            <CommandItem>Charmander</CommandItem>
-            <CommandItem>Charmelon</CommandItem>
-            <CommandItem>Charizard</CommandItem>
+            {/* map over pokemon list to create items */}
+            {/* list should cap out at like 25 pokemon */}
+            {data.map(pokemon => (
+              <CommandItem key={pokemon.name}>
+                {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+              </CommandItem>
+            ))}
           </CommandGroup>
         </CommandList>
       )}
