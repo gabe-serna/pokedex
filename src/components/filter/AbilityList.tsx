@@ -12,7 +12,12 @@ const AbilityList = () => {
             value={ability}
             className='w-full aria-selected:bg-accent-muted data-[disabled]:pointer-events-auto'
           >
-            <FilterItem id={ability} category='abilities' />
+            <FilterItem
+              id={ability
+                .replace(/[A-Z]/g, (letter: string) => letter.toLowerCase())
+                .replace(/\s+/g, '-')}
+              category='abilities'
+            />
             {ability}
           </CommandItem>
         </div>
