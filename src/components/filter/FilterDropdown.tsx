@@ -7,9 +7,10 @@ interface Props {
   title: string;
   description: string;
   category: string;
-  cols: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-  gap: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-  children?: ReactNode | ReactNode[];
+  isScroll?: boolean | null;
+  cols?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  children?: JSX.Element | undefined;
 }
 
 const FilterDropdown = ({
@@ -17,8 +18,9 @@ const FilterDropdown = ({
   title,
   description,
   category,
-  cols,
-  gap,
+  isScroll = null,
+  cols = 3,
+  gap = 3,
   children
 }: Props) => {
   const [displayCheckedElements, setDisplayCheckedElements] = useState(0);
@@ -31,13 +33,17 @@ const FilterDropdown = ({
       description={description}
       category={category}
     >
-      <Filters
-        state={displayCheckedElements}
-        cols={cols}
-        gap={gap}
-        category={category}
-        children={children}
-      />
+      {!isScroll ? (
+        <Filters
+          state={displayCheckedElements}
+          cols={cols}
+          gap={gap}
+          category={category}
+          children={children}
+        />
+      ) : (
+        children
+      )}
     </Dropdown>
   );
 };
