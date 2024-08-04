@@ -30,7 +30,41 @@ const App = () => {
   return (
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
       <Page>
-        <Section>Image</Section>
+        <Section className='grid 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[12rem_2fr_1fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_2fr_1fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_2fr_1fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
+          <header className='bg-accent w-full h-full p-1 flex flex-row border-b-8 border-black/20 col-start-0 col-end-2'>
+            <div className='2xl:size-28 lg:size-16 size-12 rounded-full bg-blue-500 2xl:m-8 2xl:mt-6 2xl:mr-6 lg:m-4 lg:mt-3 m-3 mt-2 border-white border-2 2xl:border-4' />
+            <div className='2xl:size-11 lg:size-6 size-5 rounded-full bg-red-500 2xl:m-4 m-2' />
+            <div className='2xl:size-11 lg:size-6 size-5 rounded-full bg-yellow-500 2xl:m-4 m-2' />
+            <div className='2xl:size-11 lg:size-6 size-5 rounded-full bg-green-600 2xl:m-4 m-2' />
+          </header>
+          <div
+            id='side'
+            className='h-full w-full bg-accent row-start-1 row-end-4 col-start-2 col-end-3 md:block hidden'
+          ></div>
+          <div
+            id='view-box'
+            className='flex items-center justify-center sm:my-4 sm:h-[calc(100%-2rem)] lg:mx-auto lg:w-[calc(100%-6rem)] sm:mx-6 sm:w-[calc(100%-3rem)] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1 '
+          >
+            <div className='flex flex-col items-center my-4 h-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] w-[calc(100%-5rem)] bg-slate-200 border-8 border-accent/90 rounded-md'>
+              <h1 className='text-black text-left w-[calc(100%-1rem)] lg:text-xl md:text-l ml-4 my-1 font-medium'>
+                Name
+              </h1>
+              <div className='flex items-center justify-center m-4 mt-0 h-[calc(100%-2rem)] w-[calc(100%-2rem)] bg-stone-800 rounded-md'></div>
+              <aside className='text-gray-500 italic w-full sm:flex sm:flex-row sm:justify-around mt-1 hidden'>
+                <p>Height: 1' 04"</p>
+                <p>13.2 lbs</p>
+              </aside>
+            </div>
+          </div>
+          <div
+            id='info'
+            className='h-[calc(100%-3rem)] w-[calc(100%-6rem)] mx-auto mt-4 mb-8 bg-accent rounded-2xl p-4 row-start-3 col-start-1 sm:block hidden'
+          >
+            <h1>Types:</h1>
+            <h1>Weaknesses:</h1>
+            <h1>Abilities:</h1>
+          </div>
+        </Section>
         <Section>
           <QueryContext.Provider value={{ query, setQuery }}>
             <SearchContext.Provider value={{ isSearching, setIsSearching }}>
