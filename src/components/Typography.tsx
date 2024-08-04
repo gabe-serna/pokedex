@@ -1,3 +1,7 @@
+import { useContext } from 'react';
+import { SearchContext } from './SearchContext';
+import { useMediaQuery } from '@/hooks/use-media-query';
+
 interface Props {
   children?: string;
   className?: string;
@@ -29,8 +33,13 @@ export const TypographyH2 = ({ children, className }: Props) => {
 };
 
 export const TypographyH3 = ({ children, className }: Props) => {
+  const { isSearching } = useContext(SearchContext);
+  const isDesktop = useMediaQuery('(min-width: 640px)');
+  const marginTop = isDesktop ? 'mt-44' : isSearching ? 'mt-44' : 'mt-8';
   return (
-    <h3 className={'scroll-m-20 text-2xl font-semibold tracking-tight ' + className}>
+    <h3
+      className={`scroll-m-20 text-xl sm:text-2xl font-semibold tracking-tight ${marginTop} ${className}`}
+    >
       {children}
     </h3>
   );

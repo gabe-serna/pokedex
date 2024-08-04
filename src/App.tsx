@@ -16,6 +16,8 @@ import Page from './components/Page';
 import FilterDropdown from './components/filter/FilterDropdown';
 import FilterItem from './components/filter/FilterItem';
 import AbilityList from './components/filter/AbilityList';
+import ClearFilters from './components/filter/ClearFilters';
+import { SearchContext } from './components/SearchContext';
 
 const App = () => {
   const [query, setQuery] = useState<Query>({
@@ -23,6 +25,7 @@ const App = () => {
     generations: [],
     abilities: []
   });
+  const [isSearching, setIsSearching] = useState(false);
 
   return (
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
@@ -30,8 +33,10 @@ const App = () => {
         <Section>Image</Section>
         <Section>
           <QueryContext.Provider value={{ query, setQuery }}>
-            <Data />
-            <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
+            <SearchContext.Provider value={{ isSearching, setIsSearching }}>
+              <Data />
+              <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
+            </SearchContext.Provider>
             <FilterDropdown
               previewText='Types'
               title='Select Type'
@@ -81,6 +86,7 @@ const App = () => {
             >
               <AbilityList />
             </FilterDropdown>
+            <ClearFilters />
           </QueryContext.Provider>
         </Section>
       </Page>

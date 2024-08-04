@@ -32,6 +32,7 @@ const safelist = [
 
 const config = {
   safelist: safelist.flat(),
+  important: true,
   darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
