@@ -6,13 +6,13 @@ const AbilityList = () => {
   return (
     <>
       {abilities.map(ability => (
-        <div className='flex flex-row items-center w-full'>
+        <div key={`div-${ability}`} className='flex flex-row items-center w-full'>
           <CommandItem
-            key={ability}
             value={ability}
-            className='w-full aria-selected:bg-accent-muted data-[disabled]:pointer-events-auto'
+            className='w-full data-[disabled]:pointer-events-auto'
           >
             <FilterItem
+              key={ability}
               id={ability
                 .replace(/[A-Z]/g, (letter: string) => letter.toLowerCase())
                 .replace(/\s+/g, '-')}

@@ -13,9 +13,10 @@ import { SearchContext } from './SearchContext';
 
 interface Props {
   data: Result[];
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Search = ({ data }: Props) => {
+const Search = ({ data, setSelected }: Props) => {
   const { isSearching, setIsSearching } = useContext(SearchContext);
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
@@ -31,7 +32,7 @@ const Search = ({ data }: Props) => {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             {data.map(pokemon => (
-              <CommandItem key={pokemon.name}>
+              <CommandItem onSelect={event => setSelected(event)} key={pokemon.name}>
                 {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
               </CommandItem>
             ))}

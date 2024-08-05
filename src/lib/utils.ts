@@ -5,6 +5,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export interface ClassProps {
+  className?: string;
+}
+
 export const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 export const genMap = new Map<number, string>();
 genMap.set(1, 'i');
