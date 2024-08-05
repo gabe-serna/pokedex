@@ -43,7 +43,7 @@ const App = () => {
           ></div>
           <div
             id='view-box'
-            className='flex items-center justify-center 2xl:w-[calc(100%-20rem)] lg:mx-auto lg:w-[calc(100%-6rem)] sm:my-4 sm:h-[calc(100%-2rem)] sm:mx-6 sm:w-[calc(100%-3rem)] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1 2xl:row-start-3 2xl:row-end-4'
+            className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-[calc(100%-20rem)] 2xl:max-w-[50rem] 2xl:max-h-[50rem] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] lg:max-h-[25rem] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-3rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1 2xl:row-start-3 2xl:row-end-4'
           >
             <div className='flex flex-col items-center my-4 h-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] w-[calc(100%-5rem)] bg-slate-200 border-8 border-accent/90 rounded-md'>
               <h1 className='text-black text-left w-[calc(100%-1rem)] 2xl:text-3xl lg:text-xl md:text-l ml-4 my-1 font-medium'>
