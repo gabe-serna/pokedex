@@ -1,10 +1,11 @@
 import useSearch from '@/hooks/use-filter';
 import { QueryContext } from './QueryContext';
 import { useContext } from 'react';
-import Search from '../Search';
+import Search from '@/components/Search';
+import { Selected } from '@/lib/utils';
 
 interface Props {
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  setSelected: React.Dispatch<React.SetStateAction<Selected>>;
 }
 
 export const Data = ({ setSelected }: Props) => {

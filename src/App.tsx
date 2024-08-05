@@ -9,7 +9,7 @@ import {
   TypographyP
 } from './components/Typography';
 import { Query, QueryContext } from './components/filter/QueryContext';
-import { numbers, types, genMap } from './lib/utils';
+import { numbers, types, genMap, Selected } from './lib/utils';
 import { Data } from './components/filter/Data';
 import Section from './components/Section';
 import Page from './components/Page';
@@ -30,7 +30,10 @@ const App = () => {
     abilities: []
   });
   const [isSearching, setIsSearching] = useState(false);
-  const [selectedPokemon, setSelectedPokemon] = useState('');
+  const [selectedPokemon, setSelectedPokemon] = useState<Selected>({
+    name: '',
+    id: 0
+  });
 
   return (
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>

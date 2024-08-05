@@ -10,10 +10,11 @@ import {
 } from '@/components/ui/command';
 import { Result } from '@/lib/filter';
 import { SearchContext } from './SearchContext';
+import { Selected } from '@/lib/utils';
 
 interface Props {
   data: Result[];
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  setSelected: React.Dispatch<React.SetStateAction<Selected>>;
 }
 
 const Search = ({ data, setSelected }: Props) => {
@@ -32,7 +33,15 @@ const Search = ({ data, setSelected }: Props) => {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             {data.map(pokemon => (
-              <CommandItem onSelect={event => setSelected(event)} key={pokemon.name}>
+              <CommandItem
+                onSelect={event =>
+                  setSelected({
+                    name: event,
+                    id: getID(pokemon.url)
+                  })
+                }
+                key={pokemon.name}
+              >
                 {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
               </CommandItem>
             ))}
@@ -48,6 +57,12 @@ const Background = () => {
   return (
     <div className='absolute sm:top-[calc(6.5rem+4px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-2.5rem)] sm:w-[calc(50%-4.5rem)] bg-black/20 mx-1'></div>
   );
+};
+
+const getID = (url: string) => {
+  const regex = /\/(\d+)\/$/;
+  const match = url.match(regex);
+  return match ? parseInt(match[1]) : 0;
 };
 
 export default Search;
