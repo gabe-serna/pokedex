@@ -71,63 +71,65 @@ const App = () => {
             <h1> Click for more info</h1>
           </div>
         </Section>
-        <Section>
-          <QueryContext.Provider value={{ query, setQuery }}>
-            <SearchContext.Provider value={{ isSearching, setIsSearching }}>
-              <Data />
-              <TypographyH3 className='mt-44'>Filter by:</TypographyH3>
-            </SearchContext.Provider>
-            <FilterDropdown
-              previewText='Types'
-              title='Select Type'
-              description='Choose which types to filter the Pokédex by'
-              category='types'
-              cols={3}
-              gap={3}
-            >
-              <>
-                {Array.from(types.keys()).map(type => (
-                  <FilterItem
-                    id={type}
-                    key={type}
-                    label={type.charAt(0).toUpperCase() + type.slice(1)}
-                    category='types'
-                    color={types.get(type)}
-                  />
-                ))}
-              </>
-            </FilterDropdown>
-            <FilterDropdown
-              previewText='Generations'
-              title='Select Generation'
-              description='Choose which generations to filter the Pokédex by'
-              category='generations'
-              cols={3}
-              gap={6}
-            >
-              <>
-                {numbers.map(gen => (
-                  <FilterItem
-                    id={`generation-${genMap.get(gen)}`}
-                    key={`generation-${gen}`}
-                    label={`Gen ${gen}`}
-                    category='generations'
-                  />
-                ))}
-              </>
-            </FilterDropdown>
-            <FilterDropdown
-              previewText='Abilities'
-              title='Select Abilites'
-              description='Choose which abilites to filter the Pokédex by'
-              category='abilities'
-              isScroll={true}
-              scrollText='Search for an ability'
-            >
-              <AbilityList />
-            </FilterDropdown>
-            <ClearFilters />
-          </QueryContext.Provider>
+        <Section className='grid grid-cols-1 grid-rows-1 sm:grid-rows-[4rem_5fr_2fr]'>
+          <div className=' px-4 sm:px-8 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3'>
+            <QueryContext.Provider value={{ query, setQuery }}>
+              <SearchContext.Provider value={{ isSearching, setIsSearching }}>
+                <Data />
+                <TypographyH3>Filter by:</TypographyH3>
+              </SearchContext.Provider>
+              <FilterDropdown
+                previewText='Types'
+                title='Select Type'
+                description='Choose which types to filter the Pokédex by'
+                category='types'
+                cols={3}
+                gap={3}
+              >
+                <>
+                  {Array.from(types.keys()).map(type => (
+                    <FilterItem
+                      id={type}
+                      key={type}
+                      label={type.charAt(0).toUpperCase() + type.slice(1)}
+                      category='types'
+                      color={types.get(type)}
+                    />
+                  ))}
+                </>
+              </FilterDropdown>
+              <FilterDropdown
+                previewText='Generations'
+                title='Select Generation'
+                description='Choose which generations to filter the Pokédex by'
+                category='generations'
+                cols={3}
+                gap={6}
+              >
+                <>
+                  {numbers.map(gen => (
+                    <FilterItem
+                      id={`generation-${genMap.get(gen)}`}
+                      key={`generation-${gen}`}
+                      label={`Gen ${gen}`}
+                      category='generations'
+                    />
+                  ))}
+                </>
+              </FilterDropdown>
+              <FilterDropdown
+                previewText='Abilities'
+                title='Select Abilites'
+                description='Choose which abilites to filter the Pokédex by'
+                category='abilities'
+                isScroll={true}
+                scrollText='Search for an ability'
+              >
+                <AbilityList />
+              </FilterDropdown>
+              <ClearFilters />
+            </QueryContext.Provider>
+          </div>
         </Section>
       </Page>
     </ThemeProvider>

@@ -35,7 +35,7 @@ export const TypographyH2 = ({ children, className }: Props) => {
 export const TypographyH3 = ({ children, className }: Props) => {
   const { isSearching } = useContext(SearchContext);
   const isDesktop = useMediaQuery('(min-width: 640px)');
-  const marginTop = isDesktop ? 'mt-44' : isSearching ? 'mt-44' : 'mt-8';
+  const marginTop = isDesktop ? 'mt-52' : isSearching ? 'mt-52' : 'mt-14';
   return (
     <h3
       className={`scroll-m-20 text-xl sm:text-2xl font-semibold tracking-tight ${marginTop} ${className}`}
