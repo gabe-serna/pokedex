@@ -11,7 +11,7 @@ const Info = () => {
       </div>
       <div
         id='more-info'
-        className='h-[calc(100%-3rem)] w-[calc(100%-6rem)] m-auto bg-accent rounded-2xl p-4 row-start-3 col-start-1 sm:hidden flex flex-col items-center justify-center'
+        className='h-[calc(100%-3rem)] w-[calc(100%-6rem)] m-auto mt-0 bg-accent rounded-2xl p-4 row-start-3 col-start-1 sm:hidden flex flex-col items-center justify-center'
       >
         <h1> Click for more info</h1>
       </div>
