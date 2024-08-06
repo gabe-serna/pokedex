@@ -21,7 +21,6 @@ import { SearchContext } from './components/SearchContext';
 import Header from './components/selected-pokemon/Header';
 import Side from './components/selected-pokemon/Side';
 import ViewBox from './components/selected-pokemon/ViewBox';
-import Info from './components/selected-pokemon/Info';
 
 const App = () => {
   const [query, setQuery] = useState<Query>({
@@ -45,7 +44,6 @@ const App = () => {
             state={selectedPokemon}
             className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-[calc(100%-20rem)] 2xl:max-w-[50rem] 2xl:max-h-[50rem] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] lg:max-h-[25rem] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-3rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1 2xl:row-start-3 2xl:row-end-4'
           />
-          <Info />
         </Section>
         <Section className='grid grid-cols-1 grid-rows-1 sm:grid-rows-[4rem_5fr_2fr]'>
           <div className=' px-4 sm:px-8 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3'>

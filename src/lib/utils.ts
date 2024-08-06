@@ -26,6 +26,26 @@ genMap.set(7, 'vii');
 genMap.set(8, 'viii');
 genMap.set(9, 'ix');
 
+export const weaknesses = new Map<string, string[]>();
+weaknesses.set('normal', ['fighting']);
+weaknesses.set('fire', ['water', 'rock', 'ground']);
+weaknesses.set('water', ['electric', 'grass']);
+weaknesses.set('electric', ['ground']);
+weaknesses.set('grass', ['fire', 'ice', 'poison', 'flying', 'bug']);
+weaknesses.set('ice', ['fire', 'fighting', 'rock', 'steel']);
+weaknesses.set('fighting', ['flying', 'psychic', 'fairy']);
+weaknesses.set('poison', ['ground', 'psychic']);
+weaknesses.set('ground', ['water', 'grass', 'ice']);
+weaknesses.set('flying', ['electric', 'ice', 'rock']);
+weaknesses.set('psychic', ['bug', 'ghost', 'dark']);
+weaknesses.set('bug', ['fire', 'flying', 'rock']);
+weaknesses.set('rock', ['water', 'grass', 'fighting', 'ground', 'steel']);
+weaknesses.set('ghost', ['ghost', 'dark']);
+weaknesses.set('dragon', ['ice', 'dragon', 'fairy']);
+weaknesses.set('dark', ['fighting', 'bug', 'fairy']);
+weaknesses.set('steel', ['fire', 'fighting', 'ground']);
+weaknesses.set('fairy', ['poison', 'steel']);
+
 export const types = new Map<string, string>();
 /* https://gist.github.com/apaleslimghost/0d25ec801ca4fc43317bcff298af43c3 */
 types.set('normal', '#A8A77A');

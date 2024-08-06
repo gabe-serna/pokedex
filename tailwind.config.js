@@ -27,7 +27,10 @@ const safelist = [
   numbers.map(n => `grid-cols-${n}`),
   numbers.map(n => `gap-${n}`),
   hexCodes.map(c => `data-[state=checked]:bg-[${c}]`),
-  hexCodes.map(c => `border-[${c}]`)
+  hexCodes.map(c => `border-[${c}]`),
+  hexCodes.map(c => `from-[${c}]`),
+  hexCodes.map(c => `via-[hsl(from_${c}_h_s_calc(l_/_2))]`),
+  hexCodes.map(c => `to-[${c}]`)
 ];
 
 const config = {
