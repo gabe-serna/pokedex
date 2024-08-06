@@ -1,4 +1,3 @@
-import getSprite from '@/lib/getSprite';
 import getStats, { Stats } from '@/lib/getStats';
 import { Selected, weaknesses } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
@@ -11,7 +10,13 @@ interface Props {
 
 const ViewBox = ({ state, className }: Props) => {
   const [, setIsFetching] = useState(true);
-  const stats = useRef<Stats>({ height: '', weight: '', types: [], abilities: [] });
+  const stats = useRef<Stats>({
+    height: '',
+    weight: '',
+    types: [],
+    abilities: [],
+    sprite: ''
+  });
   const name = state.name !== '' ? state.name : 'Select a Pokémon';
   const weaknessList = new Map<string, string>();
 
@@ -26,7 +31,6 @@ const ViewBox = ({ state, className }: Props) => {
       });
     }
   }, [state]);
-  const spriteURL = state.id > 0 ? getSprite(state.id) : '';
   return (
     <>
       <div id='view-box' className={className}>
@@ -35,10 +39,11 @@ const ViewBox = ({ state, className }: Props) => {
             {name}
           </h1>
           <div className='flex items-center justify-center m-4 mt-0 mb-2 h-[calc(100%-4rem)] w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
-            {spriteURL != '' && (
+            {stats.current.sprite != '' && (
               <img
-                className='aspect-square object-scale-down h-full'
-                src={spriteURL}
+                className='aspect-square object-scale-down h-full sprite'
+                src={stats.current.sprite}
+                alt={`${name} Sprite`}
               />
             )}
           </div>

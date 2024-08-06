@@ -1,11 +1,12 @@
 import axios from 'axios';
+import spriteNotFound from '../assets/not_found.png';
 
 export interface Stats {
   height: string;
   weight: string;
   types: string[];
-  // weaknesses: string[];
   abilities: string[];
+  sprite: string;
 }
 
 const getStats = async (name: string): Promise<Stats> => {
@@ -26,10 +27,13 @@ const getStats = async (name: string): Promise<Stats> => {
     height = `${feet}' ${inches}"`;
 
     const weight = `${Math.round(result.data.weight * 0.2205)} lbs`;
-    return { height, weight, types, abilities };
+    const url: string | null =
+      result.data.sprites.other['official-artwork'].front_default;
+    const sprite = url ? url : spriteNotFound;
+    return { height, weight, types, abilities, sprite };
   } catch (error) {
     console.error(error);
-    return { height: '', weight: '', types: [], abilities: [] };
+    return { height: '', weight: '', types: [], abilities: [], sprite: '' };
   }
 };
 
