@@ -42,7 +42,7 @@ const App = () => {
           <Side className='h-full w-full bg-accent row-start-1 row-end-4 col-start-2 col-end-3 2xl:row-end-6 md:block hidden' />
           <ViewBox
             state={selectedPokemon}
-            className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-[calc(100%-20rem)] 2xl:max-w-[50rem] 2xl:max-h-[50rem] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] lg:max-h-[25rem] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-3rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1 2xl:row-start-3 2xl:row-end-4'
+            className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-3/5 2xl-h: 2xl:max-w-none 2xl:max-h-none lg:w-[calc(100%-6rem)] lg:max-w-[25rem] lg:max-h-[25rem] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-3rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1 2xl:row-start-3 2xl:row-end-4'
           />
         </Section>
         <Section className='grid grid-cols-1 grid-rows-1 sm:grid-rows-[4rem_5fr_2fr]'>

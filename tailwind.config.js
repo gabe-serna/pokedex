@@ -29,7 +29,7 @@ const safelist = [
   hexCodes.map(c => `data-[state=checked]:bg-[${c}]`),
   hexCodes.map(c => `border-[${c}]`),
   hexCodes.map(c => `from-[${c}]`),
-  hexCodes.map(c => `via-[hsl(from_${c}_h_s_calc(l_/_2))]`),
+  hexCodes.map(c => `via-[hsl(from_${c}_h_s_calc(l_*_0.5))]`),
   hexCodes.map(c => `to-[${c}]`)
 ];
 
@@ -45,6 +45,14 @@ const config = {
   ],
   prefix: '',
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      '3xl': '1920px'
+    },
     container: {
       center: true,
       padding: '2rem',

@@ -13,6 +13,7 @@ const ViewBox = ({ state, className }: Props) => {
   const [, setIsFetching] = useState(true);
   const stats = useRef<Stats>({ height: '', weight: '', types: [], abilities: [] });
   const name = state.name !== '' ? state.name : 'Select a Pokémon';
+  const weaknessList = new Map<string, string>();
 
   useEffect(() => {
     setIsFetching(true);
@@ -49,34 +50,43 @@ const ViewBox = ({ state, className }: Props) => {
       </div>
       <div
         id='info'
-        className='h-[calc(100%-3rem)] w-[calc(100%-6rem)] mx-auto mt-4 mb-8 bg-accent rounded-2xl p-4 row-start-3 col-start-1 sm:block hidden 2xl:row-start-5 2xl:row-end-6 2xl:h-[calc(100%-15rem)] 2xl:w-[calc(100%-20rem)] 2xl:mb-auto 2xl:text-3xl'
+        className='sm:grid sm:grid-cols-[3fr_2fr] sm:grid-rows-[auto_1fr] h-[calc(100%-3rem)] w-[calc(100%-6rem)] mx-auto mt-2 mb-8 bg-accent rounded-2xl p-4 row-start-3 col-start-1 hidden 2xl:row-start-5 2xl:row-end-6 2xl:h-3/5 2xl:w-[calc(100%-10rem)] 2xl:mb-auto 2xl:text-2xl'
       >
-        <h1 className='inline'>Types: </h1>
-        {stats.current.types.map(type => {
-          return <Type>{type}</Type>;
-        })}
-        <h1>
-          Weaknesses:{' '}
-          {stats.current.types.map(type =>
-            weaknesses
-              .get(type)
-              ?.map(
-                weakness =>
-                  `${weakness.replace(/^\w/, match => match.toUpperCase())} `
-              )
-          )}
-        </h1>
-        <h1>Abilities: </h1>
-        <ul>
-          {stats.current.abilities.map(ability => {
-            return (
-              <li className='list-disc ml-4'>{`${ability.replace(
-                /(^\w|-\w)/g,
-                match => match.toUpperCase()
-              )} `}</li>
-            );
+        <div className='row-start-1 row-span-1 col-start-1 col-span-1 mb-1'>
+          <h1 className='inline'>Types: </h1>
+          {stats.current.types.map(type => {
+            return <Type key={`type-${type}`}>{type}</Type>;
           })}
-        </ul>
+        </div>
+        <div className='row-start-2 row-span-1 col-start-1 col-span-1 my-auto'>
+          <div className='mb-1'>
+            <h1 className='inline'>Weaknesses: </h1>
+          </div>
+          <div className='block'>
+            {stats.current.types.map(type =>
+              weaknesses.get(type)?.map(weakness => {
+                if (weaknessList.has(weakness)) return null;
+                weaknessList.set(weakness, weakness);
+                return <Type key={`weakness-${weakness}`}>{weakness}</Type>;
+              })
+            )}
+          </div>
+        </div>
+        <div className='row-start-1 row-span-2 col-start-2 col-span-1 pl-4'>
+          <h1>Abilities: </h1>
+          <ul>
+            {stats.current.abilities.map(ability => {
+              return (
+                <li
+                  key={`stats-${ability}`}
+                  className='list-disc ml-4'
+                >{`${ability.replace(/(^\w|-\w)/g, match =>
+                  match.toUpperCase()
+                )} `}</li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
       <div
         id='more-info'
