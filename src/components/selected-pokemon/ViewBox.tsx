@@ -9,7 +9,12 @@ interface Props {
 }
 
 const ViewBox = ({ state, className }: Props) => {
-  const [, setIsFetching] = useState(true);
+  const [isFetching, setIsFetching] = useState(true);
+  const glitchLeft = useRef<HTMLImageElement>(null);
+  const glitchRight = useRef<HTMLImageElement>(null);
+  const glitchBox = useRef<HTMLDivElement>(null);
+  const name = state.name !== '' ? state.name : 'Select a Pokémon';
+  const weaknessList = new Map<string, string>();
   const stats = useRef<Stats>({
     height: '',
     weight: '',
@@ -17,8 +22,6 @@ const ViewBox = ({ state, className }: Props) => {
     abilities: [],
     sprite: ''
   });
-  const name = state.name !== '' ? state.name : 'Select a Pokémon';
-  const weaknessList = new Map<string, string>();
 
   useEffect(() => {
     setIsFetching(true);
@@ -31,6 +34,21 @@ const ViewBox = ({ state, className }: Props) => {
       });
     }
   }, [state]);
+
+  useEffect(() => {
+    if (!isFetching) return;
+    glitchLeft.current?.classList.add('glitchLeft');
+    glitchRight.current?.classList.add('glitchRight');
+    glitchBox.current?.classList.add('glitchBox');
+  }, [isFetching]);
+
+  addEventListener('animationend', event => {
+    const animationName = event.animationName;
+    if (animationName.includes('glitch')) {
+      const target = event.target as HTMLElement;
+      target.classList.remove(`${animationName}`);
+    }
+  });
   return (
     <>
       <div id='view-box' className={className}>
@@ -38,13 +56,35 @@ const ViewBox = ({ state, className }: Props) => {
           <h1 className='text-black text-left w-[calc(100%-1rem)] 2xl:text-3xl lg:text-xl md:text-l ml-4 my-1 font-medium'>
             {name}
           </h1>
-          <div className='flex items-center justify-center m-4 mt-0 mb-2 h-[calc(100%-4rem)] w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
+          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 mb-2 h-[calc(100%-4rem)] w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
             {stats.current.sprite != '' && (
-              <img
-                className='aspect-square object-scale-down h-full sprite'
-                src={stats.current.sprite}
-                alt={`${name} Sprite`}
-              />
+              <>
+                <img
+                  className='aspect-square object-scale-down h-full mx-auto row-start-1 row-span-1 col-start-1 col-span-1 sprite z-10'
+                  src={stats.current.sprite}
+                  alt={`${name} Sprite`}
+                />
+                <div className='row-start-1 row-span-1 col-start-1 col-span-1 h-1/2 overflow-hidden z-10'>
+                  <img
+                    ref={glitchLeft}
+                    className='aspect-square h-[200%] opacity-50 mx-auto row-start-1 row-span-1 col-start-1 col-span-1 glitchLeft'
+                    src={stats.current.sprite}
+                    alt='Sprite Overlay Left'
+                  />
+                </div>
+                <div className='flex row-start-1 row-span-1 col-start-1 col-span-1 mt-auto h-1/2 overflow-hidden z-10'>
+                  <img
+                    ref={glitchRight}
+                    className='aspect-square self-end h-[200%] opacity-50 mx-auto row-start-1 row-span-1 col-start-1 col-span-1 glitchRight'
+                    src={stats.current.sprite}
+                    alt='Sprite Overlay Right'
+                  />
+                </div>
+                <div
+                  ref={glitchBox}
+                  className='row-start-1 row-span-1 col-start-1 col-span-1 z-0 glitch-box'
+                ></div>
+              </>
             )}
           </div>
           <aside className='text-gray-500 italic w-full 2xl:text-2xl sm:flex sm:flex-row sm:justify-around mb-2 hidden'>

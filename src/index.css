@@ -69,21 +69,6 @@
     @apply bg-background text-foreground;
   }
 }
-.sprite {
-  animation: sprite-load 500ms forwards;
-}
-
-@keyframes sprite-load {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .text-outline-black {
   text-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black,
     1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black;
@@ -104,4 +89,62 @@
 }
 ::-webkit-scrollbar-button {
   display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .glitchBox {
+    background-image: url('https://i.pinimg.com/originals/cf/24/e8/cf24e8e56a6a847f7c7dc6751453b46f.gif');
+    filter: saturate(0.3) opacity(0.15) contrast(2);
+    animation: glitchBox 600ms;
+  }
+  @keyframes glitchBox {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  .glitchLeft {
+    animation: glitchLeft 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    animation-delay: 20ms;
+  }
+  @keyframes glitchLeft {
+    0%,
+    45% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(-6px);
+      filter: hue-rotate(-180deg);
+    }
+    50% {
+      transform: translateX(-10px);
+      filter: hue-rotate(-180deg);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  .glitchRight {
+    animation: glitchRight 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  @keyframes glitchRight {
+    0%,
+    45% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(6px);
+      filter: hue-rotate(180deg);
+    }
+    50% {
+      transform: translateX(10px);
+      filter: hue-rotate(180deg);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
