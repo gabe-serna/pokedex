@@ -56,7 +56,7 @@ const ViewBox = ({ state, className }: Props) => {
           <h1 className='text-black text-left w-[calc(100%-1rem)] 2xl:text-3xl lg:text-xl md:text-l ml-4 my-1 font-medium'>
             {name}
           </h1>
-          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 mb-2 h-[calc(100%-4rem)] w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
+          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 mb-2 aspect-square  w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
             {stats.current.sprite != '' && (
               <>
                 <img
@@ -82,7 +82,7 @@ const ViewBox = ({ state, className }: Props) => {
                 </div>
                 <div
                   ref={glitchBox}
-                  className='row-start-1 row-span-1 col-start-1 col-span-1 z-0 glitch-box'
+                  className='row-start-1 row-span-1 col-start-1 col-span-1 z-0 glitchBox'
                 ></div>
               </>
             )}
