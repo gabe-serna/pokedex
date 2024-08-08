@@ -21,6 +21,7 @@ import { SearchContext } from './components/SearchContext';
 import Header from './components/selected-pokemon/Header';
 import Side from './components/selected-pokemon/Side';
 import ViewBox from './components/selected-pokemon/ViewBox';
+import UnitToggle from './components/UnitToggle';
 
 const App = () => {
   const [query, setQuery] = useState<Query>({
@@ -103,6 +104,9 @@ const App = () => {
               </FilterDropdown>
               <ClearFilters />
             </QueryContext.Provider>
+          </div>
+          <div className='flex items-center justify-center row-start-3 row-span-1 size-full'>
+            <UnitToggle />
           </div>
         </Section>
       </Page>
