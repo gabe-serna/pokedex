@@ -52,11 +52,11 @@ const ViewBox = ({ state, className }: Props) => {
   return (
     <>
       <div id='view-box' className={className}>
-        <div className='flex flex-col items-center my-4 h-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] w-[calc(100%-5rem)] bg-slate-200 border-8 border-accent/90 rounded-md'>
+        <div className='flex flex-col items-center justify-between my-4 h-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] w-[calc(100%-5rem)] bg-slate-200 border-8 border-accent/90 rounded-md'>
           <h1 className='text-black text-left w-[calc(100%-1rem)] 2xl:text-3xl lg:text-xl md:text-l ml-4 my-1 font-medium'>
             {name}
           </h1>
-          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 mb-2 aspect-square  w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
+          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 mb-2 aspect-square w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
             {stats.current.sprite != '' && (
               <>
                 <img
@@ -87,7 +87,7 @@ const ViewBox = ({ state, className }: Props) => {
               </>
             )}
           </div>
-          <aside className='text-gray-500 italic w-full 2xl:text-2xl sm:flex sm:flex-row sm:justify-around mb-2 hidden'>
+          <aside className='text-gray-500 italic px-2 w-full 2xl:text-xl 3xl:text-2xl sm:flex sm:flex-row sm:justify-around mb-2 hidden'>
             <p>Height: {stats.current.height}</p>
             <p>Weight: {stats.current.weight}</p>
           </aside>
@@ -95,17 +95,17 @@ const ViewBox = ({ state, className }: Props) => {
       </div>
       <div
         id='info'
-        className='sm:grid sm:grid-cols-[3fr_2fr] sm:grid-rows-[auto_1fr] h-[calc(100%-3rem)] w-[calc(100%-6rem)] mx-auto mt-2 mb-8 bg-accent rounded-2xl p-4 row-start-3 col-start-1 hidden 2xl:row-start-5 2xl:row-end-6 2xl:h-3/5 2xl:w-[calc(100%-10rem)] 2xl:mb-auto 2xl:text-2xl'
+        className='sm:grid sm:grid-cols-[3fr_2fr] sm:grid-rows-[auto_1fr] h-min w-[calc(100%-6rem)] mx-auto mt-2 mb-8 bg-accent rounded-2xl p-4 row-start-3 col-start-1 hidden 2xl:w-[calc(100%-10rem)] 2xl:mb-auto 2xl:text-2xl md:max-lg:w-[90%]'
       >
         <div className='row-start-1 row-span-1 col-start-1 col-span-1 mb-1'>
-          <h1 className='inline'>Types: </h1>
+          <h1 className='inline 2xl:text-xl 3xl:text-2xl'>Types: </h1>
           {stats.current.types.map(type => {
             return <Type key={`type-${type}`}>{type}</Type>;
           })}
         </div>
         <div className='row-start-2 row-span-1 col-start-1 col-span-1 my-auto'>
           <div className='mb-1'>
-            <h1 className='inline'>Weaknesses: </h1>
+            <h1 className='inline 2xl:text-xl 3xl:text-2xl'>Weaknesses: </h1>
           </div>
           <div className='block'>
             {stats.current.types.map(type =>
@@ -117,8 +117,8 @@ const ViewBox = ({ state, className }: Props) => {
             )}
           </div>
         </div>
-        <div className='row-start-1 row-span-2 col-start-2 col-span-1 pl-4'>
-          <h1>Abilities: </h1>
+        <div className='row-start-1 row-span-2 col-start-2 col-span-1 pl-4 2xl:text-xl 3xl:text-2xl'>
+          <h1 className=''>Abilities: </h1>
           <ul>
             {stats.current.abilities.map(ability => {
               return (

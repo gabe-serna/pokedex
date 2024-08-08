@@ -37,12 +37,12 @@ const App = () => {
   return (
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
       <Page>
-        <Section className='grid 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[12rem_1fr_6fr_1fr_5fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_2fr_1fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_2fr_1fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
+        <Section className='grid 3xl:grid-rows-[12rem_5fr_3fr] 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[10rem_5fr_3fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_5fr_3fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_5fr_3fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
           <Header className='bg-accent w-full h-full p-1 flex flex-row border-b-8 border-black/20 col-start-0 col-end-2' />
           <Side className='h-full w-full bg-accent row-start-1 row-end-4 col-start-2 col-end-3 2xl:row-end-6 md:block hidden' />
           <ViewBox
             state={selectedPokemon}
-            className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-3/5 2xl-h: 2xl:max-w-none 2xl:max-h-none lg:w-[calc(100%-6rem)] lg:max-w-[25rem] lg:max-h-[25rem] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-3rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1 2xl:row-start-3 2xl:row-end-4'
+            className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-3/5 2xl:h-[calc(100%-3rem)] 2xl:max-w-none 2xl:max-h-none xl:w-[55%] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] md:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-3rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1'
           />
         </Section>
         <Section className='grid grid-cols-1 grid-rows-1 sm:grid-rows-[4rem_5fr_2fr]'>
