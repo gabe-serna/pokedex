@@ -97,18 +97,16 @@ const App = () => {
                   ))}
                 </>
               </FilterDropdown>
-              <SearchContext.Provider value={{ isSearching, setIsSearching }}>
-                <FilterDropdown
-                  previewText='Abilities'
-                  title='Select Abilites'
-                  description='Choose which abilites to filter the Pokédex by'
-                  category='abilities'
-                  isScroll={true}
-                  scrollText='Search for an ability'
-                >
-                  <AbilityList />
-                </FilterDropdown>
-              </SearchContext.Provider>
+              <FilterDropdown
+                previewText='Abilities'
+                title='Select Abilites'
+                description='Choose which abilites to filter the Pokédex by'
+                category='abilities'
+                isScroll={true}
+                scrollText='Search for an ability'
+              >
+                <AbilityList />
+              </FilterDropdown>
               <ClearFilters />
             </QueryContext.Provider>
           </div>

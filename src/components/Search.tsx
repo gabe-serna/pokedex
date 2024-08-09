@@ -32,18 +32,24 @@ const Search = ({ data, setSelected }: Props) => {
     }
   });
 
+  const background = isSearching
+    ? '[&>div]:bg-accent'
+    : '[&>div]:bg-black/3 [&>div]:sm:bg-background [&>div]:hover:bg-accent';
+
   return (
     <Command ref={container} className='rounded-md bg-black/10'>
-      <CommandInput
-        ref={searchBar}
-        placeholder='Search for a pokémon'
-        style={
-          isSearching ? { backgroundColor: 'hsl(var(--accent)) !important' } : {}
-        }
-        // onFocus={() => setIsSearching(true)}
-        // onBlur={() => setIsSearching(false)}
-        onClick={() => setIsSearching(true)}
-      />
+      <div className={background}>
+        <CommandInput
+          ref={searchBar}
+          placeholder='Search for a pokémon'
+          style={
+            isSearching ? { backgroundColor: 'hsl(var(--accent)) !important' } : {}
+          }
+          // onFocus={() => setIsSearching(true)}
+          // onBlur={() => setIsSearching(false)}
+          onClick={() => setIsSearching(true)}
+        />
+      </div>
       {isSearching && (
         <CommandList className='absolute h-[168px] w-[calc(100%-2.5rem)] top-[calc(50%+2.75rem+1px)] sm:w-[calc(50%-4.25rem)] sm:top-[calc(6.5rem+4px)] border-0'>
           <CommandEmpty>No results found.</CommandEmpty>

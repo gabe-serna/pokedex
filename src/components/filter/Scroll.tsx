@@ -43,7 +43,9 @@ const Scroll = ({ state, category, scrollText, children }: Props) => {
 
   return (
     <Command>
-      <CommandInput placeholder={scrollText} />
+      <div className='[&>div]:bg-accent'>
+        <CommandInput placeholder={scrollText} className='bg-transparent' />
+      </div>
       <CommandList className='h-[168px] sm:h-[136px] w-[calc(100%-0.5rem)] mx-1 bg-black/20'>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup className='px-0' ref={ref}>

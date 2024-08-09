@@ -5,8 +5,6 @@ import { Search } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { useContext } from 'react';
-import { SearchContext } from '../SearchContext';
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -40,28 +38,22 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
->(({ className, ...props }, ref) => {
-  const { isSearching } = useContext(SearchContext);
-  const background = isSearching
-    ? 'bg-accent'
-    : 'bg-black/3 sm:bg-background hover:bg-accent';
-  return (
-    <div
-      className={`flex items-center rounded-md px-3 ${background} transition-colors border border-black `}
-      cmdk-input-wrapper=''
-    >
-      <Search className='mr-2 h-4 w-4 shrink-0 opacity-50' />
-      <CommandPrimitive.Input
-        ref={ref}
-        className={cn(
-          'flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
-          className
-        )}
-        {...props}
-      />
-    </div>
-  );
-});
+>(({ className, ...props }, ref) => (
+  <div
+    className='flex items-center rounded-md px-3 transition-colors border border-black '
+    cmdk-input-wrapper=''
+  >
+    <Search className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+    <CommandPrimitive.Input
+      ref={ref}
+      className={cn(
+        'flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
+        className
+      )}
+      {...props}
+    />
+  </div>
+));
 
 CommandInput.displayName = CommandPrimitive.Input.displayName;
 
