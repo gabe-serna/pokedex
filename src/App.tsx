@@ -40,13 +40,13 @@ const App = () => {
   return (
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
       <Page>
-        <Section className='grid 3xl:grid-rows-[12rem_5fr_3fr] 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[10rem_5fr_3fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_5fr_3fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_5fr_3fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
+        <Section className='grid 3xl:grid-rows-[12rem_5fr_3fr] 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[9rem_5fr_3fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_5fr_3fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_5fr_3fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
           <Header className='bg-accent w-full h-full p-1 flex flex-row border-b-8 border-black/20 col-start-0 col-end-2' />
           <Side className='h-full w-full bg-accent row-start-1 row-end-4 col-start-2 col-end-3 2xl:row-end-6 md:block hidden' />
           <UnitContext.Provider value={{ unit, setUnit }}>
             <ViewBox
               state={selectedPokemon}
-              className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-3/5 2xl:h-[calc(100%-3rem)] 2xl:max-w-none 2xl:max-h-none xl:w-[55%] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] md:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-3rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1'
+              className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-1/2 2xl:h-[calc(100%-3rem)] 2xl:max-w-none 2xl:max-h-none xl:w-[55%] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] md:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-4rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1'
             />
           </UnitContext.Provider>
         </Section>
