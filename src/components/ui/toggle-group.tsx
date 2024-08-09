@@ -4,6 +4,7 @@ import { type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 import { toggleVariants } from '@/components/ui/toggle';
+import { UnitContext } from '../UnitContext';
 
 interface ToggleContext {
   size: 'default' | 'sm' | 'lg' | null | undefined;
@@ -48,12 +49,14 @@ const ToggleGroupItem = React.forwardRef<
   const context = React.useContext(ToggleGroupContext);
   const border = React.useRef<HTMLDivElement>(null);
   const reference = ref as React.MutableRefObject<HTMLButtonElement> | null;
+  const { setUnit } = React.useContext(UnitContext);
 
   React.useEffect(() => {
     const toggle = reference?.current?.getAttribute('data-state');
     if (border.current === null) return;
     if (toggle === 'on') {
       border.current.dataset.state = 'on';
+      setUnit(reference?.current?.title as string);
     } else {
       border.current.dataset.state = 'off';
     }

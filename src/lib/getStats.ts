@@ -9,7 +9,7 @@ export interface Stats {
   sprite: string;
 }
 
-const getStats = async (name: string): Promise<Stats> => {
+const getStats = async (name: string, unit: string): Promise<Stats> => {
   try {
     const result = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
@@ -20,13 +20,9 @@ const getStats = async (name: string): Promise<Stats> => {
     const types: string[] = result.data.types.map(
       (types: { type: { name: string } }) => types.type.name
     );
-    let height = result.data.height;
-    const feet = Math.floor(height / 3.048);
-    const inches = Math.round(height * 3.937 - feet * 12);
-    console.log(`height: ${height}, feet ${feet}, inches ${inches}`);
-    height = `${feet}' ${inches}"`;
+    const height = getHeight(result.data.height, unit);
 
-    const weight = `${Math.round(result.data.weight * 0.2205)} lbs`;
+    const weight = getWeight(result.data.weight, unit);
     const url: string | null =
       result.data.sprites.other['official-artwork'].front_default;
     const sprite = url ? url : spriteNotFound;
@@ -38,3 +34,23 @@ const getStats = async (name: string): Promise<Stats> => {
 };
 
 export default getStats;
+
+const getHeight = (height: number, unit: string): string => {
+  if (unit === 'Imperial') {
+    const feet = Math.floor(height / 3.048);
+    const inches = Math.round(height * 3.937 - feet * 12);
+    console.log(`height: ${height}, feet ${feet}, inches ${inches}`);
+    return `${feet}' ${inches}"`;
+  }
+
+  //Unit is Metric
+  height = height / 10;
+  return `${height} m`;
+};
+
+const getWeight = (weight: number, unit: string): string => {
+  if (unit === 'Imperial') return `${Math.round(weight * 0.2205)} lbs`;
+
+  //Unit is Metric
+  return `${weight / 10} kg`;
+};

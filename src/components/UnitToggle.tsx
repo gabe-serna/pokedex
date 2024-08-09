@@ -6,10 +6,10 @@ const UnitToggle = () => {
   const metricRef = useRef(null);
   return (
     <ToggleGroup variant='outline' type='single'>
-      <ToggleGroupItem ref={imperialRef} value='imperial'>
+      <ToggleGroupItem ref={imperialRef} value='imperial' title='Imperial'>
         LB
       </ToggleGroupItem>
-      <ToggleGroupItem ref={metricRef} value='metric'>
+      <ToggleGroupItem ref={metricRef} value='metric' title='Metric'>
         KG
       </ToggleGroupItem>
     </ToggleGroup>

@@ -1,7 +1,8 @@
 import getStats, { Stats } from '@/lib/getStats';
 import { Selected, weaknesses } from '@/lib/utils';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import Type from './Type';
+import { UnitContext } from '../UnitContext';
 
 interface Props {
   state: Selected;
@@ -10,6 +11,8 @@ interface Props {
 
 const ViewBox = ({ state, className }: Props) => {
   const [isFetching, setIsFetching] = useState(true);
+  // const [update, setUpdate] = useState(0);
+  const { unit } = useContext(UnitContext);
   const glitchLeft = useRef<HTMLImageElement>(null);
   const glitchRight = useRef<HTMLImageElement>(null);
   const glitchBox = useRef<HTMLDivElement>(null);
@@ -26,14 +29,14 @@ const ViewBox = ({ state, className }: Props) => {
   useEffect(() => {
     setIsFetching(true);
     if (state.name !== '') {
-      const data = getStats(state.name);
+      const data = getStats(state.name, unit);
       data.then(res => {
         stats.current = res;
         setIsFetching(false);
         console.log('finished fetching data');
       });
     }
-  }, [state]);
+  }, [state, unit]);
 
   useEffect(() => {
     if (!isFetching) return;
