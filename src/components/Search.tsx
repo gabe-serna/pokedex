@@ -20,6 +20,7 @@ interface Props {
 const Search = ({ data, setSelected }: Props) => {
   const { isSearching, setIsSearching } = useContext(SearchContext);
   const isDesktop = useMediaQuery('(min-width: 640px)');
+  const isLoading = data[0]?.name === 'loading';
 
   return (
     <Command className='rounded-md bg-black/10'>
@@ -32,20 +33,22 @@ const Search = ({ data, setSelected }: Props) => {
         <CommandList className='absolute h-[168px] w-[calc(100%-2.5rem)] top-[calc(50%+2.75rem+1px)] sm:w-[calc(50%-4.25rem)] sm:top-[calc(6.5rem+4px)] border-0'>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
-            {data.map(pokemon => (
-              <CommandItem
-                className='aria-selected:border-l-1'
-                onSelect={event =>
-                  setSelected({
-                    name: event,
-                    id: getID(pokemon.url)
-                  })
-                }
-                key={pokemon.name}
-              >
-                {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-              </CommandItem>
-            ))}
+            {!isLoading &&
+              data.map(pokemon => (
+                <CommandItem
+                  className='aria-selected:border-l-1'
+                  onSelect={event =>
+                    setSelected({
+                      name: event,
+                      id: getID(pokemon.url)
+                    })
+                  }
+                  key={pokemon.name}
+                >
+                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                </CommandItem>
+              ))}
+            {isLoading && <CommandItem className='loading'>Filtering</CommandItem>}
           </CommandGroup>
         </CommandList>
       )}

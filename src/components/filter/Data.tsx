@@ -1,4 +1,4 @@
-import useSearch from '@/hooks/use-filter';
+import useFilter from '@/hooks/use-filter';
 import { QueryContext } from './QueryContext';
 import { useContext } from 'react';
 import Search from '@/components/Search';
@@ -10,6 +10,6 @@ interface Props {
 
 export const Data = ({ setSelected }: Props) => {
   const { query } = useContext(QueryContext);
-  const data = useSearch(query);
+  const data = useFilter(query);
   return <Search data={data} setSelected={setSelected} />;
 };

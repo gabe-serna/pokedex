@@ -20,8 +20,8 @@ const useFilter = (query: Query) => {
         setData(dataset);
         return;
       }
+      setData([{ name: 'loading', url: '' }]);
       newData = await filterData(query, dataset, newData, controller.signal);
-
       setData(newData);
     }
 

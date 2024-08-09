@@ -27,8 +27,8 @@ const Help = () => {
             <br />
             <br />
             Once you've selected your filters, you can search for a specific Pokémon
-            by its name. Click on a Pokémon to view more details about it the display
-            to the left.
+            by typing its name. Click on a Pokémon to view more details about it the
+            display to the left.
             <br />
             <br />
             You can also switch between <strong>Imperial</strong> and{' '}

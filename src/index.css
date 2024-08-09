@@ -90,7 +90,31 @@
 ::-webkit-scrollbar-button {
   display: none;
 }
+.loading {
+  font-size: 30px;
+}
 
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: '\2026'; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .glitchBox {
     background-image: url('https://i.pinimg.com/originals/cf/24/e8/cf24e8e56a6a847f7c7dc6751453b46f.gif');
