@@ -64,7 +64,7 @@ const Dropdown = ({
         <DialogTrigger asChild>
           <Button
             variant='outline'
-            className='mr-5 relative bg-blue-900 hover:bg-blue-600'
+            className='mr-5 relative bg-blue-900 hover:bg-blue-600 outline outline-1 outline-black'
             onClick={() => handleClick()}
           >
             {previewText}

@@ -5,16 +5,21 @@ import { Button } from '../ui/button';
 const ClearFilters = () => {
   const { setQuery } = useContext(QueryContext);
   return (
-    <Button
-      variant='secondary'
-      className={`block text-xs sm:text-sm w-25 h-9 font-normal italic text-primary-foreground/50 hover:brightness-[1.35] hover:bg-secondary transition-all`}
+    <div
+      className={`flex mt-5 items-center justify-center p-0 m-0 w-[6.625rem] h-[2.375rem] bg-black transition-all`}
       style={{ clipPath: 'ellipse(closest-side farthest-side)' }}
-      onClick={() => {
-        setQuery({ types: [], generations: [], abilities: [] });
-      }}
     >
-      Clear Filters
-    </Button>
+      <Button
+        variant='secondary'
+        className={`text-xs mt-0 sm:text-sm w-[6.5rem] h-9 font-normal italic text-primary-foreground/50 hover:brightness-[1.35] hover:bg-secondary transition-all`}
+        style={{ clipPath: 'ellipse(closest-side farthest-side)' }}
+        onClick={() => {
+          setQuery({ types: [], generations: [], abilities: [] });
+        }}
+      >
+        Clear Filters
+      </Button>
+    </div>
   );
 };
 

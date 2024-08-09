@@ -33,7 +33,6 @@ const ViewBox = ({ state, className }: Props) => {
       data.then(res => {
         stats.current = res;
         setIsFetching(false);
-        console.log('finished fetching data');
       });
     }
   }, [state, unit]);
@@ -55,11 +54,11 @@ const ViewBox = ({ state, className }: Props) => {
   return (
     <>
       <div id='view-box' className={className}>
-        <div className='flex flex-col items-center justify-between my-4 h-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] w-[calc(100%-5rem)] bg-slate-200 border-8 border-accent/90 rounded-md'>
+        <div className='flex flex-col items-center outline outline-2 outline-black justify-between my-4 h-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] w-[calc(100%-5rem)] bg-slate-200 border-8 border-accent/90 rounded-md'>
           <h1 className='text-black text-left w-[calc(100%-1rem)] 3xl:text-3xl lg:text-xl md:text-l ml-4 mt-auto mb-2 pt-2 font-medium'>
             {name}
           </h1>
-          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 sm:mb-2 mb-4 aspect-square w-[calc(100%-2rem)] bg-stone-800 rounded-md overflow-hidden'>
+          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 sm:mb-2 mb-4 aspect-square w-[calc(100%-2rem)] bg-stone-800 border-2 border-black rounded-md overflow-hidden'>
             {stats.current.sprite != '' && (
               <>
                 <img
@@ -98,7 +97,7 @@ const ViewBox = ({ state, className }: Props) => {
       </div>
       <div
         id='info'
-        className='sm:grid sm:grid-cols-[3fr_2fr] sm:grid-rows-[auto_1fr] h-min sm:min-h-40 w-[calc(100%-6rem)] mx-auto mt-2 mb-8 bg-accent rounded-2xl p-4 row-start-3 col-start-1 hidden 2xl:mb-auto 2xl:text-2xl md:max-lg:w-[90%]'
+        className='sm:grid sm:grid-cols-[3fr_2fr] sm:grid-rows-[auto_1fr] h-min sm:min-h-40 w-[calc(100%-6rem)] mx-auto mt-2 mb-8 bg-accent rounded-2xl p-4 border-2 border-black row-start-3 col-start-1 hidden 2xl:mb-auto 2xl:text-2xl md:max-lg:w-[90%]'
       >
         <div className='row-start-1 row-span-1 col-start-1 col-span-1 mb-1'>
           <h1 className='inline 2xl:text-lg 3xl:text-2xl'>Types: </h1>

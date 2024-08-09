@@ -64,7 +64,7 @@ const ToggleGroupItem = React.forwardRef<
   return (
     <div
       ref={border}
-      className='h-12 p-1 rounded-md data-[state=off]:bg-stone-600 data-[state=off]:hover:bg-stone-400 data-[state=on]:bg-stone-600 data-[state=on]:hover:bg-stone-500 transition-colors'
+      className='h-12 p-1 rounded-md data-[state=off]:bg-stone-600 data-[state=off]:hover:bg-stone-400 data-[state=on]:bg-stone-600 data-[state=on]:hover:bg-stone-500 transition-colors outline outline-1 outline-black'
       data-state='off'
     >
       <ToggleGroupPrimitive.Item

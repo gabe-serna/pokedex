@@ -23,6 +23,7 @@ import Side from './components/selected-pokemon/Side';
 import ViewBox from './components/selected-pokemon/ViewBox';
 import UnitToggle from './components/UnitToggle';
 import { UnitContext } from './components/UnitContext';
+import Help from './components/Help';
 
 const App = () => {
   const [query, setQuery] = useState<Query>({
@@ -46,12 +47,12 @@ const App = () => {
           <UnitContext.Provider value={{ unit, setUnit }}>
             <ViewBox
               state={selectedPokemon}
-              className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-1/2 2xl:h-[calc(100%-3rem)] 2xl:max-w-none 2xl:max-h-none xl:w-[55%] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] md:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-4rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 rounded-md row-start-2 col-start-1'
+              className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-1/2 2xl:h-[calc(100%-3rem)] 2xl:max-w-none 2xl:max-h-none xl:w-[55%] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] md:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-4rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 outline outline-2 outline-black rounded-md row-start-2 col-start-1'
             />
           </UnitContext.Provider>
         </Section>
         <Section className='grid grid-cols-1 grid-rows-1 sm:grid-rows-[4rem_5fr_2fr]'>
-          <div className=' px-4 sm:px-8 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3'>
+          <div className='px-4 sm:px-8 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3'>
             <QueryContext.Provider value={{ query, setQuery }}>
               <SearchContext.Provider value={{ isSearching, setIsSearching }}>
                 <Data setSelected={setSelectedPokemon} />
@@ -110,8 +111,9 @@ const App = () => {
             </QueryContext.Provider>
           </div>
           <UnitContext.Provider value={{ unit, setUnit }}>
-            <div className='flex items-center justify-center row-start-3 row-span-1 size-full'>
+            <div className='flex items-start justify-start px-4 sm:px-8 row-start-3 row-span-1 size-full'>
               <UnitToggle />
+              <Help />
             </div>
           </UnitContext.Provider>
         </Section>

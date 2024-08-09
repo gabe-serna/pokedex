@@ -15,7 +15,6 @@ const getStats = async (name: string, unit: string): Promise<Stats> => {
     const result = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
     );
-    console.log(result.data.abilities);
     let abilities: string[] = result.data.abilities.map(
       (ability: { ability: { name: string } }) => {
         if (abilitiesMap.has(ability.ability.name)) return '';
@@ -46,7 +45,6 @@ const getHeight = (height: number, unit: string): string => {
   if (unit === 'Imperial') {
     const feet = Math.floor(height / 3.048);
     const inches = Math.round(height * 3.937 - feet * 12);
-    console.log(`height: ${height}, feet ${feet}, inches ${inches}`);
     return `${feet}' ${inches}"`;
   }
 
