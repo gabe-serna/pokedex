@@ -15,7 +15,7 @@ const Help = () => {
           ?
         </DialogTrigger>
       </div>
-      <DialogContent>
+      <DialogContent className='sm:w-full w-[calc(100%-4rem)]'>
         <DialogHeader>
           <DialogTitle>Help</DialogTitle>
           <DialogDescription>
