@@ -10,13 +10,20 @@ export interface Stats {
 }
 
 const getStats = async (name: string, unit: string): Promise<Stats> => {
+  const abilitiesMap = new Map<string, string>();
   try {
     const result = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
     );
-    const abilities: string[] = result.data.abilities.map(
-      (ability: { ability: { name: string } }) => ability.ability.name
+    console.log(result.data.abilities);
+    let abilities: string[] = result.data.abilities.map(
+      (ability: { ability: { name: string } }) => {
+        if (abilitiesMap.has(ability.ability.name)) return '';
+        abilitiesMap.set(ability.ability.name, ability.ability.name);
+        return ability.ability.name;
+      }
     );
+    abilities = abilities.filter((ability: string) => ability !== '');
     const types: string[] = result.data.types.map(
       (types: { type: { name: string } }) => types.type.name
     );
