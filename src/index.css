@@ -80,15 +80,17 @@
   }
 }
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: hsl(from hsl(var(--accent)) h calc(s - 30) l);
+  outline: solid 1px black;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-button {
-  display: none;
+  height: 1px;
+  /* display: none; */
 }
 .loading {
   font-size: 30px;
