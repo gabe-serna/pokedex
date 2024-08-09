@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import {
   Command,
@@ -19,15 +19,30 @@ interface Props {
 
 const Search = ({ data, setSelected }: Props) => {
   const { isSearching, setIsSearching } = useContext(SearchContext);
+  const container = useRef<HTMLDivElement>(null);
+  const searchBar = useRef<HTMLInputElement>(null);
   const isDesktop = useMediaQuery('(min-width: 640px)');
   const isLoading = data[0]?.name === 'loading';
 
+  addEventListener('click', event => {
+    if (container.current && !container.current.contains(event.target as Node)) {
+      // console.log(event.target);
+      searchBar.current?.blur();
+      setIsSearching(false);
+    }
+  });
+
   return (
-    <Command className='rounded-md bg-black/10'>
+    <Command ref={container} className='rounded-md bg-black/10'>
       <CommandInput
+        ref={searchBar}
         placeholder='Search for a pokémon'
-        onFocus={() => setIsSearching(true)}
-        onBlur={() => setIsSearching(false)}
+        style={
+          isSearching ? { backgroundColor: 'hsl(var(--accent)) !important' } : {}
+        }
+        // onFocus={() => setIsSearching(true)}
+        // onBlur={() => setIsSearching(false)}
+        onClick={() => setIsSearching(true)}
       />
       {isSearching && (
         <CommandList className='absolute h-[168px] w-[calc(100%-2.5rem)] top-[calc(50%+2.75rem+1px)] sm:w-[calc(50%-4.25rem)] sm:top-[calc(6.5rem+4px)] border-0'>
@@ -36,14 +51,15 @@ const Search = ({ data, setSelected }: Props) => {
             {!isLoading &&
               data.map(pokemon => (
                 <CommandItem
-                  className='aria-selected:border-l-1'
-                  onSelect={event =>
+                  key={pokemon.name}
+                  className='aria-selected:border-l-1 data-[disabled]:pointer-events-auto'
+                  onSelect={event => {
+                    // searchBar.current?.focus();
                     setSelected({
                       name: event,
                       id: getID(pokemon.url)
-                    })
-                  }
-                  key={pokemon.name}
+                    });
+                  }}
                 >
                   {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
                 </CommandItem>
