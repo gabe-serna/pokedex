@@ -29,11 +29,12 @@ const Search = ({ data, setSelected }: Props) => {
         onBlur={() => setIsSearching(false)}
       />
       {isSearching && (
-        <CommandList className='absolute h-[168px] w-[calc(100%-2.5rem)] top-[calc(50%+2.75rem+1px)] sm:w-[calc(50%-4.25rem)] sm:top-[calc(6.5rem+4px)]'>
+        <CommandList className='absolute h-[168px] w-[calc(100%-2.5rem)] top-[calc(50%+2.75rem+1px)] sm:w-[calc(50%-4.25rem)] sm:top-[calc(6.5rem+4px)] border-0'>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             {data.map(pokemon => (
               <CommandItem
+                className='aria-selected:border-l-1'
                 onSelect={event =>
                   setSelected({
                     name: event,
@@ -55,7 +56,7 @@ const Search = ({ data, setSelected }: Props) => {
 
 const Background = () => {
   return (
-    <div className='absolute sm:top-[calc(6.5rem+4px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-2.5rem)] sm:w-[calc(50%-4.5rem)] bg-black/20 mx-1'></div>
+    <div className='absolute sm:top-[calc(6.5rem+4px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-2.5rem)] sm:w-[calc(50%-4.5rem)] bg-black/20 mx-1 border border-black border-t-0'></div>
   );
 };
 
