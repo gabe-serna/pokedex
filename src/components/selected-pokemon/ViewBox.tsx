@@ -47,7 +47,7 @@ const ViewBox = ({ state, className }: Props) => {
   }, [state, unit]);
 
   useEffect(() => {
-    if (!isFetching) return;
+    if (isFetching) return;
     glitchLeft.current?.classList.add('glitchLeft');
     glitchRight.current?.classList.add('glitchRight');
     glitchBox.current?.classList.add('glitchBox');

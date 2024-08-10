@@ -74,7 +74,7 @@ const Info = ({ stats }: Props) => {
             })}
           </ul>
         </div>
-        {isDesktop && (
+        {isDesktop && stats.current.sprite != '' && (
           <h2 className='text-outline-black italic text-stone-300 mt-3'>
             Generation {gen}
           </h2>
