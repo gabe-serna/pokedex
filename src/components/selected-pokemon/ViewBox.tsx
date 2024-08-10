@@ -31,6 +31,7 @@ const ViewBox = ({ state, className }: Props) => {
     weight: '',
     types: [],
     abilities: [],
+    generation: '',
     sprite: ''
   });
 

@@ -6,6 +6,7 @@ export interface Stats {
   weight: string;
   types: string[];
   abilities: string[];
+  generation: string;
   sprite: string;
 }
 
@@ -27,15 +28,25 @@ const getStats = async (name: string, unit: string): Promise<Stats> => {
       (types: { type: { name: string } }) => types.type.name
     );
     const height = getHeight(result.data.height, unit);
-
     const weight = getWeight(result.data.weight, unit);
+
+    const species = await axios.get(result?.data.species.url);
+    const generation: string = species?.data.generation.name;
+
     const url: string | null =
       result.data.sprites.other['official-artwork'].front_default;
     const sprite = url ? url : spriteNotFound;
-    return { height, weight, types, abilities, sprite };
+    return { height, weight, types, abilities, generation, sprite };
   } catch (error) {
     console.error(error);
-    return { height: '', weight: '', types: [], abilities: [], sprite: '' };
+    return {
+      height: '',
+      weight: '',
+      types: [],
+      abilities: [],
+      generation: '',
+      sprite: ''
+    };
   }
 };
 

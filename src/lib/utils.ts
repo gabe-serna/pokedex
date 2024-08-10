@@ -26,6 +26,11 @@ genMap.set(7, 'vii');
 genMap.set(8, 'viii');
 genMap.set(9, 'ix');
 
+export const reverseGenMap = new Map<string, number>();
+genMap.forEach((value, key) => {
+  reverseGenMap.set(value, key);
+});
+
 export const weaknesses = new Map<string, string[]>();
 weaknesses.set('normal', ['fighting']);
 weaknesses.set('fire', ['water', 'rock', 'ground']);
