@@ -31,6 +31,7 @@ interface Props {
   description: string;
   category: string;
   children?: JSX.Element;
+  className?: string;
 }
 
 const Dropdown = ({
@@ -39,7 +40,8 @@ const Dropdown = ({
   title,
   description,
   category,
-  children
+  children,
+  className
 }: Props) => {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 640px)');
@@ -64,7 +66,7 @@ const Dropdown = ({
         <DialogTrigger asChild>
           <Button
             variant='outline'
-            className='mr-5 relative bg-blue-900 hover:bg-blue-600 outline outline-1 outline-black'
+            className={`mr-5 relative bg-blue-900 hover:bg-blue-600 outline outline-1 outline-black ${className}`}
             onClick={() => handleClick()}
           >
             {previewText}
@@ -89,7 +91,7 @@ const Dropdown = ({
       <DrawerTrigger asChild>
         <Button
           variant='outline'
-          className='mr-5 relative bg-blue-900 hover:bg-blue-600'
+          className={`mr-5 relative bg-blue-900 hover:bg-blue-600 ${className}`}
         >
           {previewText}
           {amountSelected && (

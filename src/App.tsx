@@ -58,64 +58,68 @@ const App = () => {
                 <Data setSelected={setSelectedPokemon} />
                 <TypographyH3>Filter by:</TypographyH3>
               </SearchContext.Provider>
-              <FilterDropdown
-                previewText='Types'
-                title='Select Type'
-                description='Choose which types to filter the Pokédex by'
-                category='types'
-                cols={3}
-                gap={3}
-              >
-                <>
-                  {Array.from(types.keys()).map(type => (
-                    <FilterItem
-                      id={type}
-                      key={type}
-                      label={type.charAt(0).toUpperCase() + type.slice(1)}
-                      category='types'
-                      color={types.get(type)}
-                    />
-                  ))}
-                </>
-              </FilterDropdown>
-              <FilterDropdown
-                previewText='Generations'
-                title='Select Generation'
-                description='Choose which generations to filter the Pokédex by'
-                category='generations'
-                cols={3}
-                gap={6}
-              >
-                <>
-                  {numbers.map(gen => (
-                    <FilterItem
-                      id={`generation-${genMap.get(gen)}`}
-                      key={`generation-${gen}`}
-                      label={`Gen ${gen}`}
-                      category='generations'
-                    />
-                  ))}
-                </>
-              </FilterDropdown>
-              <FilterDropdown
-                previewText='Abilities'
-                title='Select Abilites'
-                description='Choose which abilites to filter the Pokédex by'
-                category='abilities'
-                isScroll={true}
-                scrollText='Search for an ability'
-              >
-                <AbilityList />
-              </FilterDropdown>
-              <ClearFilters />
+              <div className='w-max'>
+                <FilterDropdown
+                  previewText='Types'
+                  title='Select Type'
+                  description='Choose which types to filter the Pokédex by'
+                  category='types'
+                  cols={3}
+                  gap={3}
+                >
+                  <>
+                    {Array.from(types.keys()).map(type => (
+                      <FilterItem
+                        id={type}
+                        key={type}
+                        label={type.charAt(0).toUpperCase() + type.slice(1)}
+                        category='types'
+                        color={types.get(type)}
+                      />
+                    ))}
+                  </>
+                </FilterDropdown>
+                <FilterDropdown
+                  previewText='Generations'
+                  title='Select Generation'
+                  description='Choose which generations to filter the Pokédex by'
+                  category='generations'
+                  cols={3}
+                  gap={6}
+                >
+                  <>
+                    {numbers.map(gen => (
+                      <FilterItem
+                        id={`generation-${genMap.get(gen)}`}
+                        key={`generation-${gen}`}
+                        label={`Gen ${gen}`}
+                        category='generations'
+                      />
+                    ))}
+                  </>
+                </FilterDropdown>
+                <FilterDropdown
+                  previewText='Abilities'
+                  title='Select Abilites'
+                  description='Choose which abilites to filter the Pokédex by'
+                  category='abilities'
+                  isScroll={true}
+                  scrollText='Search for an ability'
+                >
+                  <AbilityList />
+                </FilterDropdown>
+                <div className='flex flex-row items-center w-full justify-between mt-8 pr-4'>
+                  <UnitContext.Provider value={{ unit, setUnit }}>
+                    <UnitToggle />
+                  </UnitContext.Provider>
+                  <ClearFilters />
+                </div>
+              </div>
             </QueryContext.Provider>
           </div>
-          <UnitContext.Provider value={{ unit, setUnit }}>
-            <div className='flex items-start justify-start px-4 sm:px-8 row-start-3 row-span-1 size-full'>
-              <UnitToggle />
-              <Help />
-            </div>
-          </UnitContext.Provider>
+          <div className='flex items-start justify-start px-4 sm:px-8 row-start-3 row-span-1 size-full'>
+            <Help />
+          </div>
         </Section>
       </Page>
     </ThemeProvider>

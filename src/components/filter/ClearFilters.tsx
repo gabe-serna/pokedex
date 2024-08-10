@@ -6,7 +6,7 @@ const ClearFilters = () => {
   const { setQuery } = useContext(QueryContext);
   return (
     <div
-      className={`flex mt-5 items-center justify-center p-0 m-0 w-[6.625rem] h-[2.125rem] sm:h-[2.375rem] bg-black transition-all`}
+      className={`flex items-center justify-center p-0 m-0 w-[6.625rem] h-[2.125rem] sm:h-[2.375rem] bg-black transition-all`}
       style={{ clipPath: 'ellipse(closest-side farthest-side)' }}
     >
       <Button

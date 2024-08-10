@@ -13,6 +13,7 @@ interface Props {
   cols?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   children?: JSX.Element | undefined;
+  className?: string;
 }
 
 const FilterDropdown = ({
@@ -24,12 +25,14 @@ const FilterDropdown = ({
   scrollText = '',
   cols = 3,
   gap = 3,
-  children
+  children,
+  className = ''
 }: Props) => {
   const [displayCheckedElements, setDisplayCheckedElements] = useState(0);
 
   return (
     <Dropdown
+      className={className}
       handleClick={() => setDisplayCheckedElements(displayCheckedElements + 1)}
       previewText={previewText}
       title={title}
