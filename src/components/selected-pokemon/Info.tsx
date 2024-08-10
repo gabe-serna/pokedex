@@ -58,7 +58,7 @@ const Info = ({ stats }: Props) => {
             return (
               <li
                 key={`stats-${ability}`}
-                className='list-disc ml-4 text-outline-black'
+                className='relative list-disc ml-4 text-outline-black [&::marker]:content-none before:[content:"•"] before:rounded-full before:flex before:items-center before:justify-center before:size-[0.6rem] before:absolute before:left-[-1.15rem] before:top-[0.45rem]'
               >{`${ability.replace(/(^\w|-\w)/g, match =>
                 match.toUpperCase()
               )} `}</li>
