@@ -1,11 +1,9 @@
-import { createContext, Dispatch, SetStateAction } from 'react';
+import { createContext } from 'react';
+import { UseUnitProps } from '@/hooks/use-unit';
 
-interface UnitState {
-  unit: string;
-  setUnit: Dispatch<SetStateAction<string>>;
-}
-
-export const UnitContext = createContext<UnitState>({
+export const UnitContext = createContext<UseUnitProps>({
   unit: 'Imperial',
-  setUnit: () => {}
+  setUnit: () => {},
+  imperialRef: { current: null },
+  metricRef: { current: null }
 });

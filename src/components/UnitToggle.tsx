@@ -1,9 +1,9 @@
-import { useRef } from 'react';
+import { useContext } from 'react';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
+import { UnitContext } from './UnitContext';
 
 const UnitToggle = () => {
-  const imperialRef = useRef(null);
-  const metricRef = useRef(null);
+  const { imperialRef, metricRef } = useContext(UnitContext);
   return (
     <ToggleGroup variant='outline' type='single' className='w-min'>
       <ToggleGroupItem ref={imperialRef} value='imperial' title='Imperial'>
