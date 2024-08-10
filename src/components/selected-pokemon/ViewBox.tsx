@@ -63,7 +63,7 @@ const ViewBox = ({ state, className }: Props) => {
     <>
       <div id='view-box' className={className}>
         <div className='flex flex-col items-center outline outline-2 outline-black justify-between my-4 h-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] w-[calc(100%-5rem)] bg-slate-200 border-8 border-accent/90 rounded-md'>
-          <h1 className='text-black text-left w-[calc(100%-1rem)] 3xl:text-3xl lg:text-xl md:text-l ml-4 mt-auto mb-2 pt-2 font-medium'>
+          <h1 className='text-black text-left w-[calc(100%-1rem)] 3xl:text-2xl 2xl:text-lg xl:text-base lg:text-lg ml-4 mt-auto mb-2 pt-2 font-medium'>
             {name}
           </h1>
           <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 sm:mb-2 mb-4 aspect-square w-[calc(100%-2rem)] bg-stone-800 border-2 border-black rounded-md overflow-hidden'>
@@ -97,9 +97,15 @@ const ViewBox = ({ state, className }: Props) => {
               </>
             )}
           </div>
-          <aside className='text-gray-500 italic px-2 w-full whitespace-nowrap 2xl:text-md 3xl:text-2xl sm:flex sm:flex-row pb-2 sm:justify-around mb-auto hidden'>
-            <p>Height: {stats.current.height}</p>
-            <p>Weight: {stats.current.weight}</p>
+          <aside className='text-gray-500 italic px-2 w-full whitespace-nowrap 2xl:text-md 3xl:text-2xl sm:flex sm:flex-row pb-2 sm:justify-around sm:gap-1 mb-auto hidden'>
+            <div className='w-full flex flex-wrap justify-center gap-x-[6px]'>
+              <p className='block'>Height:</p>
+              <p className='block'>{stats.current.height}</p>
+            </div>
+            <div className='w-full flex flex-row flex-wrap justify-center gap-x-[6px]'>
+              <p className='block'>Weight:</p>
+              <p className='block'>{stats.current.weight}</p>
+            </div>
           </aside>
         </div>
       </div>
