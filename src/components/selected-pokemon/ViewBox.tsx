@@ -1,8 +1,17 @@
 import getStats, { Stats } from '@/lib/getStats';
-import { Selected, weaknesses } from '@/lib/utils';
-import { useContext, useEffect, useRef, useState } from 'react';
-import Type from './Type';
+import { Selected } from '@/lib/utils';
+import { ReactNode, useContext, useEffect, useRef, useState } from 'react';
 import { UnitContext } from '../UnitContext';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger
+} from '../ui/dialog';
+import { Button } from '../ui/button';
+import Info from './Info';
+import VisuallyHidden from '../ui/visually-hidden';
 
 interface Props {
   state: Selected;
@@ -17,7 +26,6 @@ const ViewBox = ({ state, className }: Props) => {
   const glitchRight = useRef<HTMLImageElement>(null);
   const glitchBox = useRef<HTMLDivElement>(null);
   const name = state.name !== '' ? state.name : 'Select a Pokémon';
-  const weaknessList = new Map<string, string>();
   const stats = useRef<Stats>({
     height: '',
     weight: '',
@@ -99,53 +107,47 @@ const ViewBox = ({ state, className }: Props) => {
         id='info'
         className='sm:grid sm:grid-cols-[3fr_2fr] sm:grid-rows-[auto_1fr] h-min sm:min-h-40 w-[calc(100%-6rem)] mx-auto mt-2 mb-8 bg-accent rounded-2xl p-4 border-2 border-black row-start-3 col-start-1 hidden 2xl:mb-auto 2xl:text-2xl md:max-lg:w-[90%]'
       >
-        <div className='row-start-1 row-span-1 col-start-1 col-span-1 mb-1'>
-          <h1 className='inline text-outline-black 2xl:text-lg 3xl:text-2xl'>
-            Types:{' '}
-          </h1>
-          {stats.current.types.map(type => {
-            return <Type key={`type-${type}`}>{type}</Type>;
-          })}
-        </div>
-        <div className='row-start-2 row-span-1 col-start-1 col-span-1 my-auto'>
-          <div className='mb-1'>
-            <h1 className='inline text-outline-black 2xl:text-lg 3xl:text-2xl'>
-              Weaknesses:{' '}
-            </h1>
-          </div>
-          <div className='block'>
-            {stats.current.types.map(type =>
-              weaknesses.get(type)?.map(weakness => {
-                if (weaknessList.has(weakness)) return null;
-                weaknessList.set(weakness, weakness);
-                return <Type key={`weakness-${weakness}`}>{weakness}</Type>;
-              })
-            )}
-          </div>
-        </div>
-        <div className='row-start-1 row-span-2 col-start-2 col-span-1 pl-4 2xl:text-lg 3xl:text-2xl'>
-          <h1 className='text-outline-black'>Abilities: </h1>
-          <ul>
-            {stats.current.abilities.map(ability => {
-              return (
-                <li
-                  key={`stats-${ability}`}
-                  className='list-disc ml-4 text-outline-black'
-                >{`${ability.replace(/(^\w|-\w)/g, match =>
-                  match.toUpperCase()
-                )} `}</li>
-              );
-            })}
-          </ul>
-        </div>
+        <Info stats={stats} />
       </div>
       <div
         id='more-info'
-        className='h-[calc(100%-3rem)] w-[calc(100%-6rem)] m-auto mt-0 bg-accent rounded-2xl p-4 row-start-3 col-start-1 sm:hidden flex flex-col items-center justify-center'
+        className='grid grid-rows-[auto_auto_auto_auto] grid-cols-1 row-start-3 col-start-1'
       >
-        <h1> Click for more info</h1>
+        <MoreInfoContainer stats={stats}>
+          <Info stats={stats} />
+        </MoreInfoContainer>
       </div>
     </>
+  );
+};
+
+const MoreInfoContainer: React.FC<{
+  children?: ReactNode;
+  stats: React.MutableRefObject<Stats>;
+}> = ({ children, stats }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      {stats.current.sprite != '' && (
+        <DialogTrigger
+          asChild
+          className='h-[calc(100%-3rem)] w-[calc(100%-6rem)] m-auto mt-0 rounded-2xl p-4 sm:hidden flex flex-col items-center justify-center'
+        >
+          <Button variant='outline' className='bg-accent'>
+            Click for more info
+          </Button>
+        </DialogTrigger>
+      )}
+      <DialogContent className='w-[calc(100%-4rem)]'>
+        <VisuallyHidden asChild>
+          <DialogTitle>More Info</DialogTitle>
+          <DialogDescription>
+            Types, Weaknesses, and Abilities of your Chosen Pokemon
+          </DialogDescription>
+        </VisuallyHidden>
+        {children}
+      </DialogContent>
+    </Dialog>
   );
 };
 
