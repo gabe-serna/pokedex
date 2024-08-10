@@ -66,10 +66,12 @@ const Info = ({ stats }: Props) => {
           })}
         </ul>
       </div>
-      <aside className='flex flex-row items-center justify-around italic text-gray-400 mt-4 row-start-4 row-span-1 col-start-1 col-span-1'>
-        <p className=''>Height: {stats.current.height}</p>
-        <p className=''>Weight: {stats.current.weight}</p>
-      </aside>
+      {!isDesktop && (
+        <aside className='flex flex-row items-center justify-around italic text-gray-400 mt-4 row-start-4 row-span-1 col-start-1 col-span-1'>
+          <p className=''>Height: {stats.current.height}</p>
+          <p className=''>Weight: {stats.current.weight}</p>
+        </aside>
+      )}
     </>
   );
 };
