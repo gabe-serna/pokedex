@@ -38,7 +38,7 @@ export const TypographyH3 = ({ children, className }: Props) => {
   const marginTop = isDesktop ? 'mt-52' : isSearching ? 'mt-52' : 'mt-14';
   return (
     <h3
-      className={`scroll-m-20 text-xl sm:text-2xl font-semibold tracking-tight ${marginTop} ${className}`}
+      className={`scroll-m-20 text-xl sm:text-2xl font-semibold text-outline-black tracking-tight ${marginTop} ${className}`}
     >
       {children}
     </h3>

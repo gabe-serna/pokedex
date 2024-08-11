@@ -75,7 +75,7 @@ const ToggleGroupItem = React.forwardRef<
             variant: context.variant || variant,
             size: context.size || size
           }),
-          'bg-stone-500 hover:bg-stone-500 data-[state=on]:bg-stone-700 data-[state=on]:text-stone-400 data-[state=on]:shadow-[inset_0px_3px_4px_rgba(0,0,0,0.3)]',
+          'text-outline-black bg-stone-500 hover:bg-stone-500 data-[state=on]:bg-stone-700 data-[state=on]:text-stone-400 data-[state=on]:shadow-[inset_0px_3px_4px_rgba(0,0,0,0.3)]',
           className
         )}
         {...props}
