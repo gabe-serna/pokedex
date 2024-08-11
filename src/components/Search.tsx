@@ -26,7 +26,6 @@ const Search = ({ data, setSelected }: Props) => {
 
   addEventListener('click', event => {
     if (container.current && !container.current.contains(event.target as Node)) {
-      // console.log(event.target);
       searchBar.current?.blur();
       setIsSearching(false);
     }
@@ -45,13 +44,11 @@ const Search = ({ data, setSelected }: Props) => {
           style={
             isSearching ? { backgroundColor: 'hsl(var(--accent)) !important' } : {}
           }
-          // onFocus={() => setIsSearching(true)}
-          // onBlur={() => setIsSearching(false)}
           onClick={() => setIsSearching(true)}
         />
       </div>
       {isSearching && (
-        <CommandList className='absolute h-[168px] w-[calc(100%-2.5rem)] top-[calc(50%+2.75rem+1px)] sm:w-[calc(50%-4.25rem)] sm:top-[calc(6.5rem+4px)] border-0'>
+        <CommandList className='absolute h-[168px] w-[calc(100%-2.5rem)] top-[calc(50%+2.75rem+1px)] sm:w-[calc(50%-6.25rem)] sm:top-[calc(8.5rem+4px)] border-0'>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             {!isLoading &&
@@ -60,7 +57,6 @@ const Search = ({ data, setSelected }: Props) => {
                   key={pokemon.name}
                   className='aria-selected:border-l-1 data-[disabled]:pointer-events-auto'
                   onSelect={event => {
-                    // searchBar.current?.focus();
                     setSelected({
                       name: event,
                       id: getID(pokemon.url)
@@ -81,7 +77,7 @@ const Search = ({ data, setSelected }: Props) => {
 
 const Background = () => {
   return (
-    <div className='absolute sm:top-[calc(6.5rem+4px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-2.5rem)] sm:w-[calc(50%-4.5rem)] bg-black/20 mx-1 border border-black border-t-0'></div>
+    <div className='absolute sm:top-[calc(8.5rem+5px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-2.5rem)] sm:w-[calc(50%-6.5rem)] bg-black/20 mx-1 border border-black border-t-0'></div>
   );
 };
 

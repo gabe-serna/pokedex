@@ -52,8 +52,24 @@ const App = () => {
             />
           </UnitContext.Provider>
         </Section>
-        <Section className='grid grid-cols-1 grid-rows-1 sm:grid-rows-[4rem_5fr_2fr]'>
-          <div className='px-4 sm:px-8 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3'>
+        <Section className='grid grid-cols-1 grid-rows-1 sm:grid-rows-[6rem_5fr_2fr]'>
+          <div className='absolute h-full w-full sm:w-1/2 row-span-1 col-span-1'>
+            <svg
+              className='absolute top-8 left-4 w-[calc(100%-2rem)] h-[calc(100%-4rem)] row-span-1 col-span-1 sm:block hidden '
+              viewBox='0 0 600 676'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+              preserveAspectRatio='none'
+            >
+              <path
+                d='M2.5 673.5V2.5C336.5 2.5 287.5 25.5 597.5 25.5V673.5H2.5Z'
+                stroke='black'
+                stroke-width='2'
+                stroke-linecap='round'
+              />
+            </svg>
+          </div>
+          <div className='px-4 sm:px-12 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3 z-20'>
             <QueryContext.Provider value={{ query, setQuery }}>
               <SearchContext.Provider value={{ isSearching, setIsSearching }}>
                 <Data setSelected={setSelectedPokemon} />
