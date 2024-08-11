@@ -66,9 +66,9 @@ const Header = () => {
         d='M61.5789 48.921C61.5789 52.1911 58.928 54.8421 55.6579 54.8421C52.3878 54.8421 49.7368 52.1911 49.7368 48.921C49.7368 45.6509 52.3878 43 55.6579 43C58.928 43 61.5789 45.6509 61.5789 48.921Z'
         fill='#9FE5FF'
       />
-      <rect width='639' height='2' fill='#5C2326' />
-      <rect width='1' height='119' transform='matrix(-1 0 0 1 1 2)' fill='#5C2326' />
-      <rect y='125' width='1' height='6' fill='#5C2326' />
+      <rect width='639' height='3' fill='#5C2326' />
+      <rect width='3' height='119' transform='matrix(-1 0 0 1 3 2)' fill='#5C2326' />
+      <rect y='125' width='3' height='6' fill='#5C2326' />
     </svg>
   );
 };
