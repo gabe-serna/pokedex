@@ -18,13 +18,13 @@ import FilterItem from './components/filter/FilterItem';
 import AbilityList from './components/filter/AbilityList';
 import ClearFilters from './components/filter/ClearFilters';
 import { SearchContext } from './components/SearchContext';
-import Header from './components/selected-pokemon/Header';
 import Side from './components/selected-pokemon/Side';
 import ViewBox from './components/selected-pokemon/ViewBox';
 import UnitToggle from './components/UnitToggle';
 import { UnitContext } from './components/UnitContext';
 import Help from './components/Help';
 import useUnit from './hooks/use-unit';
+import Header from './components/selected-pokemon/Header';
 
 const App = () => {
   const [query, setQuery] = useState<Query>({
@@ -43,25 +43,7 @@ const App = () => {
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
       <Page>
         <Section className='relative grid 3xl:grid-rows-[12rem_5fr_3fr] 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[9rem_5fr_3fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_5fr_3fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_5fr_3fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
-          <Header className='relative bg-accent w-full h-full p-1 flex flex-row border-b-8 border-black/20 col-start-0 col-end-2' />
-          <svg
-            className='w-full left-0 absolute 3xl:top-[-35px] 2xl:top-[-40px] xl:top-[-40px] lg:top-[-15px] md:top-0 sm:top-[-12px] top-[-10px]'
-            viewBox='0 0 641 162'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M187.5 124.065C157 160.065 104 160.5 0 160.5V0.5H640V91.5001C480 88.5001 518.806 102 432 102C266 102 207.296 100.7 187.5 124.065Z'
-              fill='#8E3C3C'
-              stroke='black'
-              stroke-width='2'
-            />
-            <path
-              d='M0 149C104 149 152 149 182.5 113C202.296 89.6347 266 90.5001 432 90.5C518.806 90.5 480 77.0001 640 80.0001'
-              stroke='black'
-              stroke-width='6'
-            />
-          </svg>
+          <Header />
           <Side className='h-full w-full bg-accent row-start-1 row-end-4 col-start-2 col-end-3 2xl:row-end-6 md:block hidden' />
           <UnitContext.Provider value={{ unit, setUnit, imperialRef, metricRef }}>
             <ViewBox
