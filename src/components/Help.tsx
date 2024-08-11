@@ -10,7 +10,7 @@ import {
 const Help = () => {
   return (
     <Dialog>
-      <div className='absolute bottom-0 right-0 sm:m-12 m-8 flex items-center justify-center size-12 rounded-full ml-auto outline outline-1 outline-black bg-yellow-500 hover:bg-[#f8d95a] transition-colors'>
+      <div className='absolute bottom-0 right-0 sm:mb-16 sm:mr-12 m-8 flex items-center justify-center size-12 rounded-full ml-auto outline outline-1 outline-black bg-yellow-500 hover:bg-[#f8d95a] transition-colors'>
         <DialogTrigger className='bg-yellow-400 size-10 rounded-full text-black font-bold border border-black text-xl leading-[0px]'>
           ?
         </DialogTrigger>

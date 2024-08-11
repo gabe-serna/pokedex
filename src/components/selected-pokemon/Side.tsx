@@ -21,17 +21,17 @@ const Side = () => {
         d='M0.5 668.5H95.5V720.5H0.5V668.5Z'
         fill='hsl(var(--accent))'
         stroke='black'
-        stroke-width='2'
+        strokeWidth='2'
       />
-      <path d='M7 676H89' stroke='#451B1D' stroke-width='2' stroke-linecap='round' />
+      <path d='M7 676H89' stroke='#451B1D' strokeWidth='2' strokeLinecap='round' />
       <path
         // Top Bar
         d='M0.5 0.5H95.5V128.5H0.5V0.5Z'
         fill='hsl(var(--accent))'
         stroke='black'
-        stroke-width='2'
+        strokeWidth='2'
       />
-      <path d='M7 121H89' stroke='#451B1D' stroke-width='2' stroke-linecap='round' />
+      <path d='M7 121H89' stroke='#451B1D' strokeWidth='2' strokeLinecap='round' />
     </svg>
   );
 };

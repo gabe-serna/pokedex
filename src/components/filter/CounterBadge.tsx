@@ -29,7 +29,7 @@ function CounterBadge({ className, variant, ...props }: BadgeProps) {
     <div
       className={cn(
         badgeVariants({ variant }),
-        'absolute top-0 right-0 translate-x-2/4 -translate-y-1/3',
+        'absolute top-0 right-0 translate-x-2/4 -translate-y-1/3 outline outline-1 outline-black',
         className
       )}
       {...props}

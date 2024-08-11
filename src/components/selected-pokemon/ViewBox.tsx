@@ -67,7 +67,7 @@ const ViewBox = ({ state, className }: Props) => {
           <h1 className='text-black text-left w-[calc(100%-1rem)] 3xl:text-2xl 2xl:text-lg xl:text-base lg:text-lg ml-4 mt-auto mb-2 pt-2 font-medium'>
             {name}
           </h1>
-          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 sm:mb-2 mb-4 aspect-square w-[calc(100%-2rem)] bg-stone-800 border-2 border-black rounded-md overflow-hidden'>
+          <div className='grid grid-cols-[100%] grid-rows-[100%] m-4 mt-0 sm:mb-2 mb-4 aspect-square w-[calc(100%-2rem)] bg-stone-900 border-2 border-black rounded-md overflow-hidden'>
             {stats.current.sprite != '' && (
               <>
                 <img

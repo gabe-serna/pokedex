@@ -64,8 +64,8 @@ const App = () => {
               <path
                 d='M2.5 673.5V2.5C336.5 2.5 287.5 25.5 597.5 25.5V673.5H2.5Z'
                 stroke='black'
-                stroke-width='2'
-                stroke-linecap='round'
+                strokeWidth='2'
+                strokeLinecap='round'
               />
             </svg>
           </div>

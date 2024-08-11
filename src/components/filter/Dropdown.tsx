@@ -66,7 +66,7 @@ const Dropdown = ({
         <DialogTrigger asChild>
           <Button
             variant='outline'
-            className={`mr-5 relative text-outline-black bg-blue-900 hover:bg-blue-600 outline outline-1 outline-black ${className}`}
+            className={`mr-5 relative text-outline-black bg-[#0177A4] hover:bg-[#0793C8] outline outline-1 outline-black ${className}`}
             onClick={() => handleClick()}
           >
             {previewText}
@@ -91,7 +91,7 @@ const Dropdown = ({
       <DrawerTrigger asChild>
         <Button
           variant='outline'
-          className={`mr-5 relative bg-blue-900 hover:bg-blue-600 ${className}`}
+          className={`mr-5 relative bg-[#0177A4] hover:bg-[#0793C8] ${className}`}
         >
           {previewText}
           {amountSelected && (
