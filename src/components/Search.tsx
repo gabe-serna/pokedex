@@ -32,8 +32,8 @@ const Search = ({ data, setSelected }: Props) => {
   });
 
   const background = isSearching
-    ? '[&>div]:bg-accent'
-    : '[&>div]:bg-black/3 [&>div]:sm:bg-background [&>div]:hover:bg-accent';
+    ? '[&>div]:bg-accent z-30'
+    : '[&>div]:bg-black/3 [&>div]:sm:bg-background [&>div]:hover:bg-accent z-30';
 
   return (
     <Command ref={container} className='rounded-md bg-black/10'>
@@ -77,7 +77,7 @@ const Search = ({ data, setSelected }: Props) => {
 
 const Background = () => {
   return (
-    <div className='absolute sm:top-[calc(8.5rem+5px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-2.5rem)] sm:w-[calc(50%-6.5rem)] bg-black/20 mx-1 border border-black border-t-0'></div>
+    <div className='absolute -z-10 sm:top-[calc(8.5rem+7px)] top-[calc(50%+2.75rem+1px)] h-[168px] w-[calc(100%-2.5rem)] sm:w-[calc(50%-6.5rem+1px)] bg-black/20 mx-1 border-2 border-black border-t-0'></div>
   );
 };
 
