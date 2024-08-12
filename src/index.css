@@ -118,9 +118,14 @@
   }
 }
 @media (prefers-reduced-motion: no-preference) {
+  .passiveGlitch {
+    background-size: contain;
+    background: url('https://media1.giphy.com/media/1lALzcU4pUHWWMGTlK/200w.gif?cid=6c09b952xy76kyiuaobabcrs8n5l65getxtq7rs6742bxrug&ep=v1_gifs_search&rid=200w.gif&ct=g');
+    filter: saturate(0.3) contrast(2) opacity(0.02) brightness(75);
+  }
   .glitchBox {
     background-image: url('https://i.pinimg.com/originals/cf/24/e8/cf24e8e56a6a847f7c7dc6751453b46f.gif');
-    filter: saturate(0.3) opacity(0.15) contrast(2);
+    filter: saturate(0.35) opacity(0.15) contrast(2);
     animation: glitchBox 600ms;
   }
   @keyframes glitchBox {
@@ -172,5 +177,15 @@
     100% {
       transform: translateX(0);
     }
+  }
+  .staticLeft {
+    background-size: contain;
+    background: url('https://media1.giphy.com/media/1lALzcU4pUHWWMGTlK/200w.gif?cid=6c09b952xy76kyiuaobabcrs8n5l65getxtq7rs6742bxrug&ep=v1_gifs_search&rid=200w.gif&ct=g');
+    filter: saturate(0.3) contrast(2) opacity(0.04) brightness(0.75);
+  }
+  .staticRight {
+    background-size: contain;
+    background: url('https://i.pinimg.com/originals/cf/24/e8/cf24e8e56a6a847f7c7dc6751453b46f.gif');
+    filter: saturate(0.3) contrast(2) opacity(0.07);
   }
 }

@@ -139,10 +139,10 @@ const App = () => {
           <div className='hidden sm:flex items-start justify-start px-4 sm:px-12 row-start-3 row-span-1 size-full '>
             <Help />
             <div className='relative w-1/3 h-1/3 mr-12 mt-auto mb-16 rounded-md bg-green-950/40 border-4 border-stone-900'>
-              <div className='absolute w-full h-full rounded-md bg-contain bg-[url(https://media1.giphy.com/media/1lALzcU4pUHWWMGTlK/200w.gif?cid=6c09b952xy76kyiuaobabcrs8n5l65getxtq7rs6742bxrug&ep=v1_gifs_search&rid=200w.gif&ct=g)] saturate-[0.3] contrast-200 opacity-[0.04] brightness-75' />
+              <div className='absolute w-full h-full rounded-md staticLeft' />
             </div>
             <div className='relative w-2/5 h-1/3 mr-12 mt-auto mb-16 rounded-md bg-green-950/40 border-4 border-stone-900'>
-              <div className='absolute w-full h-full rounded-md bg-contain bg-[url(https://i.pinimg.com/originals/cf/24/e8/cf24e8e56a6a847f7c7dc6751453b46f.gif)] saturate-[0.3] contrast-200 opacity-[0.07]' />
+              <div className='absolute w-full h-full rounded-md staticRight' />
             </div>
           </div>
         </Section>
