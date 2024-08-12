@@ -66,7 +66,7 @@ const Dropdown = ({
         <DialogTrigger asChild>
           <Button
             variant='outline'
-            className={`mr-5 relative text-outline-black bg-[#0177A4] hover:bg-[#0793C8] outline outline-1 outline-black ${className}`}
+            className={`sm:mr-4 md:mr-5 mt-10 sm:mt-4 xl:mt-5 2xl:mt-6 3xl:mt-8 sm:px-2 sm:py-1 sm:text-xs md:px-[0.625rem] md:py-[0.375rem] xl:text-sm xl:px-3 xl:py-[0.375rem] 2xl:text-base 2xl:px-[0.875rem] 2xl:py-[0.425rem] 3xl:text-xl 3xl:px-4 3xl:py-2 relative text-outline-black bg-[#0177A4] hover:bg-[#0793C8] outline outline-1 outline-black ${className}`}
             onClick={() => handleClick()}
           >
             {previewText}
@@ -91,7 +91,7 @@ const Dropdown = ({
       <DrawerTrigger asChild>
         <Button
           variant='outline'
-          className={`mr-5 relative bg-[#0177A4] hover:bg-[#0793C8] ${className}`}
+          className={`mr-5 mt-5 relative bg-[#0177A4] hover:bg-[#0793C8] ${className}`}
         >
           {previewText}
           {amountSelected && (

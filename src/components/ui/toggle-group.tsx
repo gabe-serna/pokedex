@@ -29,7 +29,7 @@ const ToggleGroup = React.forwardRef<
   return (
     <ToggleGroupPrimitive.Root
       ref={ref}
-      className={cn('flex items-center justify-center gap-1', className)}
+      className={cn('flex items-center justify-center gap-2', className)}
       {...props}
     >
       <ToggleGroupContext.Provider value={{ variant, size, state, setState }}>
@@ -64,7 +64,7 @@ const ToggleGroupItem = React.forwardRef<
   return (
     <div
       ref={border}
-      className='h-12 p-1 rounded-md data-[state=off]:bg-stone-600 data-[state=off]:hover:bg-stone-400 data-[state=on]:bg-stone-600 data-[state=on]:hover:bg-stone-500 transition-colors outline outline-1 outline-black'
+      className='size-10 xl:size-11 2xl:size-12 3xl:size-14 p-1 3xl:p-[5px] rounded-md data-[state=off]:bg-stone-600 data-[state=off]:hover:bg-stone-400 data-[state=on]:bg-stone-600 data-[state=on]:hover:bg-stone-500 transition-colors outline outline-2 outline-black'
       data-state='off'
     >
       <ToggleGroupPrimitive.Item
@@ -75,7 +75,7 @@ const ToggleGroupItem = React.forwardRef<
             variant: context.variant || variant,
             size: context.size || size
           }),
-          'text-outline-black bg-stone-500 hover:bg-stone-500 data-[state=on]:bg-stone-700 data-[state=on]:text-stone-400 data-[state=on]:shadow-[inset_0px_3px_4px_rgba(0,0,0,0.3)]',
+          'h-full w-full text-xs xl:text-sm 2xl:text-base 3xl:text-lg text-outline-black bg-stone-500 hover:bg-stone-500 data-[state=on]:bg-stone-700 data-[state=on]:text-stone-400 data-[state=on]:shadow-[inset_0px_3px_4px_rgba(0,0,0,0.3)]',
           className
         )}
         {...props}

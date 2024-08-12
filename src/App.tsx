@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import { ThemeProvider } from './components/Theme-Provider';
-import {
-  TypographyH1,
-  TypographyH2,
-  TypographyH3,
-  TypographyH4,
-  TypographyP
-} from './components/Typography';
+import FilterTitle from './components/FilterTitle';
 import { Query, QueryContext } from './components/filter/QueryContext';
 import { numbers, types, genMap, Selected } from './lib/utils';
 import { Data } from './components/filter/Data';
@@ -73,7 +67,7 @@ const App = () => {
             <QueryContext.Provider value={{ query, setQuery }}>
               <SearchContext.Provider value={{ isSearching, setIsSearching }}>
                 <Data setSelected={setSelectedPokemon} />
-                <TypographyH3>Filter by:</TypographyH3>
+                <FilterTitle>Filter by:</FilterTitle>
               </SearchContext.Provider>
               <div className='w-max'>
                 <FilterDropdown
@@ -125,7 +119,7 @@ const App = () => {
                 >
                   <AbilityList />
                 </FilterDropdown>
-                <div className='flex flex-row items-center w-full justify-between mt-8 pr-4'>
+                <div className='flex flex-row items-center w-full justify-between mt-4  sm:mt-3 md:mt-3 xl:mt-4 2xl:mt-5 pr-4'>
                   <UnitContext.Provider
                     value={{ unit, setUnit, imperialRef, metricRef }}
                   >
