@@ -40,14 +40,14 @@ const CommandInput = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
   <div
-    className='flex items-center rounded-md px-3 transition-colors border-2 border-black'
+    className='flex items-center rounded-md px-3 transition-colors border-2 2xl:border-[3px] border-black'
     cmdk-input-wrapper=''
   >
-    <Search className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+    <Search className='mr-2 xl:mr-[10px] 2xl:mr-3 3xl:mr-[14px] size-4 2xl:size-5 3xl:size-[26px] shrink-0 opacity-50' />
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        'flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
+        'flex h-11 2xl:h-[3.25rem] w-full rounded-md bg-transparent py-3 2xl:py-7 3xl:py-9 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
         className
       )}
       {...props}
@@ -121,7 +121,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm z-10 px-2 py-1.5 text-sm text-outline-black outline-none aria-selected:bg-accent/60 aria-selected:border aria-selected:border-black aria-selected:border-l-0 bg-transparent aria-text-accent-foreground data-[disabled]:pointer-events-none',
+      'relative flex cursor-default select-none items-center rounded-sm z-10 px-2 py-1.5 2xl:px-3 2xl:py-2 text-sm 3xl:text-2xl text-outline-black outline-none aria-selected:bg-accent/60 aria-selected:border aria-selected:border-black aria-selected:border-l-0 bg-transparent aria-text-accent-foreground data-[disabled]:pointer-events-none',
       className
     )}
     {...props}

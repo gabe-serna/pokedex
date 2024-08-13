@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import { ThemeProvider } from './components/Theme-Provider';
-import FilterTitle from './components/FilterTitle';
+import FilterTitle from './components/filter/FilterTitle';
 import { Query, QueryContext } from './components/filter/QueryContext';
 import { numbers, types, genMap, Selected } from './lib/utils';
 import { Data } from './components/filter/Data';
@@ -11,7 +11,7 @@ import FilterDropdown from './components/filter/FilterDropdown';
 import FilterItem from './components/filter/FilterItem';
 import AbilityList from './components/filter/AbilityList';
 import ClearFilters from './components/filter/ClearFilters';
-import { SearchContext } from './components/SearchContext';
+import { SearchContext } from './components/filter/SearchContext';
 import Side from './components/selected-pokemon/Side';
 import ViewBox from './components/selected-pokemon/ViewBox';
 import UnitToggle from './components/UnitToggle';
@@ -63,7 +63,7 @@ const App = () => {
               />
             </svg>
           </div>
-          <div className='px-4 sm:px-12 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3 z-20'>
+          <div className='px-4 sm:px-12 2xl:px-14 3xl:px-16 col-span-1 row-span-1 sm:row-start-2 sm:row-end-3 z-20'>
             <QueryContext.Provider value={{ query, setQuery }}>
               <SearchContext.Provider value={{ isSearching, setIsSearching }}>
                 <Data setSelected={setSelectedPokemon} />

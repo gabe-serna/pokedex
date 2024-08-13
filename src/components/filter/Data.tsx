@@ -1,7 +1,7 @@
 import useFilter from '@/hooks/use-filter';
 import { QueryContext } from './QueryContext';
 import { useContext } from 'react';
-import Search from '@/components/Search';
+import Search from '@/components/filter/Search';
 import { Selected } from '@/lib/utils';
 
 interface Props {
