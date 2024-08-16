@@ -42,7 +42,7 @@ const App = () => {
           <UnitContext.Provider value={{ unit, setUnit, imperialRef, metricRef }}>
             <ViewBox
               state={selectedPokemon}
-              className='flex items-center justify-center mx-auto sm:my-auto 2xl:w-1/2 2xl:h-[calc(100%-3rem)] 2xl:max-w-none 2xl:max-h-none xl:w-[55%] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] md:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-4rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 sm:outline sm:outline-2 sm:outline-black rounded-md row-start-2 col-start-1'
+              className='flex items-center justify-center mx-auto sm:my-auto 3xl:p-2 3xl:h-[calc(100%-3rem)] 2xl:w-1/2 2xl:h-[calc(100%-3rem)] 2xl:max-w-none 2xl:max-h-none xl:w-[55%] lg:w-[calc(100%-6rem)] lg:max-w-[25rem] md:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] sm:max-w-[21rem] w-[calc(100%-4rem)] max-h-[20rem] sm:bg-slate-200 sm:border-8 sm:border-accent/90 sm:outline sm:outline-2 sm:outline-black rounded-md row-start-2 col-start-1'
             />
           </UnitContext.Provider>
         </Section>

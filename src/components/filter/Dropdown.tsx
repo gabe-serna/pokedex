@@ -75,7 +75,7 @@ const Dropdown = ({
             )}
           </Button>
         </DialogTrigger>
-        <DialogContent className='sm:max-w-[425px]'>
+        <DialogContent className='sm:max-w-[425px] xl:max-w-[475px] 2xl:max-w-[615px] 3xl:max-w-[700px]'>
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>{description}</DialogDescription>
@@ -107,7 +107,9 @@ const Dropdown = ({
         <DrawerFooter className='pt-2'>
           {children}
           <DrawerClose asChild>
-            <Button variant='default'>Close</Button>
+            <Button variant='default' className='mt-5 border-2 border-black'>
+              Close
+            </Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>

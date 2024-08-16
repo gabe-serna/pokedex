@@ -79,6 +79,12 @@
       -2px -2px 0 black, 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black;
   }
 }
+@media (min-width: 1536px) {
+  .\32xl\:text-outline-thick {
+    text-shadow: 2px 2px 0 black, -2px 2px 0 black, 2px -2px 0 black,
+      -2px -2px 0 black, 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black;
+  }
+}
 @supports not selector(::-webkit-scrollbar) {
   * {
     scrollbar-width: thin;

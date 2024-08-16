@@ -79,7 +79,7 @@ const CommandEmpty = React.forwardRef<
 >((props, ref) => (
   <CommandPrimitive.Empty
     ref={ref}
-    className='py-6 text-center text-sm'
+    className='py-6 xl:py-7 2xl:py-9 3xl:py-12 text-center text-sm xl:[font-size:15px] 2xl:[font-size:18px] 3xl:[font-size:23px]'
     {...props}
   />
 ));
@@ -121,7 +121,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm z-10 px-2 py-1.5 2xl:px-3 2xl:py-2 text-sm 3xl:text-2xl text-outline-black outline-none aria-selected:bg-accent/60 aria-selected:border aria-selected:border-black aria-selected:border-l-0 bg-transparent aria-text-accent-foreground data-[disabled]:pointer-events-none',
+      'relative flex cursor-default select-none items-center rounded-sm z-10 px-2 py-1.5 2xl:px-3 2xl:py-2 text-sm 3xl:text-2xl text-outline-black aria-selected:bg-accent/60 aria-selected:outline aria-selected:outline-2 aria-selected:outline-black 2xl:aria-selected:outline-[3px] bg-transparent aria-text-accent-foreground data-[disabled]:pointer-events-none',
       className
     )}
     {...props}

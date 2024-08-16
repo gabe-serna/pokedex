@@ -60,10 +60,10 @@ const FilterItem = ({ id, label = '', category, color = '' }: FilterItemProps) =
   }, []);
 
   return (
-    <div className='flex items-center space-x-2'>
+    <div className='flex items-center space-x-2 2xl:space-x-3 3xl:space-x-4 2xl:py-[2px] 3xl-py-4'>
       <Checkbox
         id={id}
-        className={classes}
+        className={`2xl:size-5 3xl:size-6 ${classes}`}
         data-category={category}
         onClick={event => {
           if (mounted) {
@@ -77,7 +77,7 @@ const FilterItem = ({ id, label = '', category, color = '' }: FilterItemProps) =
       />
       <label
         htmlFor={id}
-        className='text-sm font-medium text-outline-black leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+        className='text-sm xl:[font-size:15px] 2xl:[font-size:18px] 3xl:[font-size:23px] font-medium text-outline-black leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
       >
         {label}
       </label>
