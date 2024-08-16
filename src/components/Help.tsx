@@ -10,8 +10,8 @@ import {
 const Help = () => {
   return (
     <Dialog>
-      <div className='absolute bottom-0 right-0 sm:mb-16 sm:mr-12 m-8 flex items-center justify-center size-12 rounded-full ml-auto outline outline-1 outline-black bg-yellow-500 hover:bg-[#f8d95a] transition-colors'>
-        <DialogTrigger className='bg-yellow-400 size-10 rounded-full text-black font-bold border border-black text-xl leading-[0px]'>
+      <div className='absolute bottom-0 right-0 size-12 2xl:size-[3.75rem] 3xl:size-20 sm:mb-16 sm:mr-12 m-8 flex items-center justify-center rounded-full ml-auto outline outline-1 3xl:outline-2 outline-black bg-yellow-500 hover:bg-[#f8d95a] transition-colors'>
+        <DialogTrigger className='bg-yellow-400 size-10 2xl:size-12 3xl:size-[4.125rem] rounded-full text-black font-bold border 3xl:border-2 border-black [font-size:1.25rem] 2xl:[font-size:1.5rem] 3xl:[font-size:1.875rem] 2xl:pl-[1px] 3xl:pl-[2px]'>
           ?
         </DialogTrigger>
       </div>
