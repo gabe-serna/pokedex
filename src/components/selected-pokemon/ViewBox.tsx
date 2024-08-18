@@ -72,7 +72,7 @@ const ViewBox = ({ state, className }: Props) => {
             {stats.current.sprite != '' && (
               <>
                 <img
-                  className='aspect-square object-scale-down h-full mx-auto row-start-1 row-span-1 col-start-1 col-span-1 sprite z-10 saturate-0'
+                  className='aspect-square object-scale-down h-full mx-auto row-start-1 row-span-1 col-start-1 col-span-1 sprite z-10 saturate-[40%]'
                   src={stats.current.sprite}
                   alt={`${name} Sprite`}
                 />
