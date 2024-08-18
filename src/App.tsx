@@ -36,7 +36,7 @@ const App = () => {
   return (
     <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
       <Page>
-        <Section className='relative grid 3xl:grid-rows-[12rem_5fr_3fr] 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[9rem_5fr_3fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_5fr_3fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_5fr_3fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
+        <Section className='relative grid sm:h-full h-1/2 3xl:grid-rows-[12rem_5fr_3fr] 2xl:grid-cols-[calc(100%-8rem)_8rem] 2xl:grid-rows-[9rem_5fr_3fr] lg:grid-cols-[calc(100%-6rem)_6rem] lg:grid-rows-[7rem_5fr_3fr] md:grid-cols-[calc(100%-4rem)_4rem] md:grid-rows-[5.5rem_5fr_3fr] sm:grid-rows-[5.5rem_2fr_1fr] grid-rows-[5rem_4fr_1fr] grid-cols-1'>
           <Header />
           <Side />
           <UnitContext.Provider value={{ unit, setUnit, imperialRef, metricRef }}>
