@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# Pokédex Recreation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a recreation of a Pokédex as a working web app. You can search for pokémon by name as well as filter by type, generation, and ability.
 
-Currently, two official plugins are available:
+This project was created with the following tech stack:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- Vite
+- Typescript
+- Tailwind CSS
+- shadcn/ui
 
-## Expanding the ESLint configuration
+## How to Use
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+> Note: Mobile support for this web-app is limited and may not have proper functionality.
 
-- Configure the top-level `parserOptions` property like this:
+Here is what the main screen will look like when you first load the page:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+![main-screen-image](https://cdn.discordapp.com/attachments/749955411456557056/1274809390628601970/image.png?ex=66c39a43&is=66c248c3&hm=9bada98085bb44a263387951f777b10960c033a6c38cce059621df660a457c84&)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+You may start searching for pokémon immediately by clicking the search-bar to your right where it says _"Search for a pokémon"_. By default, you will be searching in the global pokédex, but to narrow your search results you have three filters:
+
+- Types
+- Generation
+- Abilities
+
+Clicking on each filter will display a pop-up menu that will allow you to select what criteria you want to search by. Now, only pokémon that match the selected criteria will show up in the search results.
+
+To change what units the pokémon height and weight will be displayed with, you may click on the toggles labelled with **LB** and **KG** to switch between Imperial and Metric measurement.
+
+At any time, you may click the _Clear Filters_ button to reset all filters to default.
+
+---
+
+If you need these instructions while using the app, you can click on the yellow button in the bottom right corner of the screen to display this message:
+
+![help-popup-image](https://cdn.discordapp.com/attachments/749955411456557056/1274808761206444042/image.png?ex=66c399ad&is=66c2482d&hm=a286f57175a79ba02e2546f9f28cf93ba63304f8d314fe7344e709b22919ea29&)
