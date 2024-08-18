@@ -140,7 +140,7 @@
     background-image: url('https://i.pinimg.com/originals/cf/24/e8/cf24e8e56a6a847f7c7dc6751453b46f.gif');
     filter: saturate(0.35) opacity(0.15) contrast(2);
     -webkit-filter: saturate(0.35) opacity(0.15) contrast(2);
-    -webkit-animation: none;
+    -webkit-animation: glitchBox 600ms;
     animation: glitchBox 600ms;
   }
   @keyframes glitchBox {
