@@ -18,7 +18,7 @@ This project was created with the following tech stack:
 
 Here is what the main screen will look like when you first load the page:
 
-![main-screen-image](https://cdn.discordapp.com/attachments/749955411456557056/1274809390628601970/image.png?ex=66c39a43&is=66c248c3&hm=9bada98085bb44a263387951f777b10960c033a6c38cce059621df660a457c84&)
+![main-screen-image](https://i.ibb.co/Rz7b3BK/image.webp)
 
 You may start searching for pokémon immediately by clicking the search-bar to your right where it says _"Search for a pokémon"_. By default, you will be searching in the global pokédex, but to narrow your search results you have three filters:
 
@@ -36,4 +36,4 @@ At any time, you may click the _Clear Filters_ button to reset all filters to de
 
 If you need these instructions while using the app, you can click on the yellow button in the bottom right corner of the screen to display this message:
 
-![help-popup-image](https://cdn.discordapp.com/attachments/749955411456557056/1274808761206444042/image.png?ex=66c399ad&is=66c2482d&hm=a286f57175a79ba02e2546f9f28cf93ba63304f8d314fe7344e709b22919ea29&)
+![help-popup-image](https://i.ibb.co/7kNNQVb/image.webp)
